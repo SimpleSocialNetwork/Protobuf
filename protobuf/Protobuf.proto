@@ -16,7 +16,7 @@ message Post{
 	int32 id = 1;
 	ShortUser user = 2;
 	string content = 3;
-	repeated string tags = 5;
+	repeated Tag tag = 5;
 	int64 posted = 4;
 }
 
@@ -32,4 +32,13 @@ message Session{
 message SessionSignature{
 	bytes session = 1;
 	string signature = 2;
+}
+
+message Tag{
+	int32 id = 1;
+	string tag = 2;
+}
+
+message TagCollection{
+	repeated Tag list = 1;
 }
