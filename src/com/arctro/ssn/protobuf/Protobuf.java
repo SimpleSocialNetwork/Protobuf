@@ -1622,23 +1622,28 @@ public final class Protobuf {
         getContentBytes();
 
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    java.util.List<java.lang.String>
-        getTagsList();
+    java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> 
+        getTagList();
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    int getTagsCount();
+    com.arctro.ssn.protobuf.Protobuf.Tag getTag(int index);
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    java.lang.String getTags(int index);
+    int getTagCount();
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    com.google.protobuf.ByteString
-        getTagsBytes(int index);
+    java.util.List<? extends com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+        getTagOrBuilderList();
+    /**
+     * <code>repeated .Tag tag = 5;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.TagOrBuilder getTagOrBuilder(
+        int index);
 
     /**
      * <code>optional int64 posted = 4;</code>
@@ -1659,7 +1664,7 @@ public final class Protobuf {
     private Post() {
       id_ = 0;
       content_ = "";
-      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      tag_ = java.util.Collections.emptyList();
       posted_ = 0L;
     }
 
@@ -1718,12 +1723,12 @@ public final class Protobuf {
               break;
             }
             case 42: {
-              java.lang.String s = input.readStringRequireUtf8();
               if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-                tags_ = new com.google.protobuf.LazyStringArrayList();
+                tag_ = new java.util.ArrayList<com.arctro.ssn.protobuf.Protobuf.Tag>();
                 mutable_bitField0_ |= 0x00000008;
               }
-              tags_.add(s);
+              tag_.add(
+                  input.readMessage(com.arctro.ssn.protobuf.Protobuf.Tag.parser(), extensionRegistry));
               break;
             }
           }
@@ -1735,7 +1740,7 @@ public final class Protobuf {
             e).setUnfinishedMessage(this);
       } finally {
         if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
-          tags_ = tags_.getUnmodifiableView();
+          tag_ = java.util.Collections.unmodifiableList(tag_);
         }
         makeExtensionsImmutable();
       }
@@ -1817,33 +1822,39 @@ public final class Protobuf {
       }
     }
 
-    public static final int TAGS_FIELD_NUMBER = 5;
-    private com.google.protobuf.LazyStringList tags_;
+    public static final int TAG_FIELD_NUMBER = 5;
+    private java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> tag_;
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    public com.google.protobuf.ProtocolStringList
-        getTagsList() {
-      return tags_;
+    public java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> getTagList() {
+      return tag_;
     }
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    public int getTagsCount() {
-      return tags_.size();
+    public java.util.List<? extends com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+        getTagOrBuilderList() {
+      return tag_;
     }
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    public java.lang.String getTags(int index) {
-      return tags_.get(index);
+    public int getTagCount() {
+      return tag_.size();
     }
     /**
-     * <code>repeated string tags = 5;</code>
+     * <code>repeated .Tag tag = 5;</code>
      */
-    public com.google.protobuf.ByteString
-        getTagsBytes(int index) {
-      return tags_.getByteString(index);
+    public com.arctro.ssn.protobuf.Protobuf.Tag getTag(int index) {
+      return tag_.get(index);
+    }
+    /**
+     * <code>repeated .Tag tag = 5;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.TagOrBuilder getTagOrBuilder(
+        int index) {
+      return tag_.get(index);
     }
 
     public static final int POSTED_FIELD_NUMBER = 4;
@@ -1879,8 +1890,8 @@ public final class Protobuf {
       if (posted_ != 0L) {
         output.writeInt64(4, posted_);
       }
-      for (int i = 0; i < tags_.size(); i++) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, tags_.getRaw(i));
+      for (int i = 0; i < tag_.size(); i++) {
+        output.writeMessage(5, tag_.get(i));
       }
     }
 
@@ -1904,13 +1915,9 @@ public final class Protobuf {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, posted_);
       }
-      {
-        int dataSize = 0;
-        for (int i = 0; i < tags_.size(); i++) {
-          dataSize += computeStringSizeNoTag(tags_.getRaw(i));
-        }
-        size += dataSize;
-        size += 1 * getTagsList().size();
+      for (int i = 0; i < tag_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(5, tag_.get(i));
       }
       memoizedSize = size;
       return size;
@@ -1937,8 +1944,8 @@ public final class Protobuf {
       }
       result = result && getContent()
           .equals(other.getContent());
-      result = result && getTagsList()
-          .equals(other.getTagsList());
+      result = result && getTagList()
+          .equals(other.getTagList());
       result = result && (getPosted()
           == other.getPosted());
       return result;
@@ -1959,9 +1966,9 @@ public final class Protobuf {
       }
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
-      if (getTagsCount() > 0) {
-        hash = (37 * hash) + TAGS_FIELD_NUMBER;
-        hash = (53 * hash) + getTagsList().hashCode();
+      if (getTagCount() > 0) {
+        hash = (37 * hash) + TAG_FIELD_NUMBER;
+        hash = (53 * hash) + getTagList().hashCode();
       }
       hash = (37 * hash) + POSTED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
@@ -2080,6 +2087,7 @@ public final class Protobuf {
       private void maybeForceBuilderInitialization() {
         if (com.google.protobuf.GeneratedMessageV3
                 .alwaysUseFieldBuilders) {
+          getTagFieldBuilder();
         }
       }
       public Builder clear() {
@@ -2094,8 +2102,12 @@ public final class Protobuf {
         }
         content_ = "";
 
-        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
+        if (tagBuilder_ == null) {
+          tag_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        } else {
+          tagBuilder_.clear();
+        }
         posted_ = 0L;
 
         return this;
@@ -2129,11 +2141,15 @@ public final class Protobuf {
           result.user_ = userBuilder_.build();
         }
         result.content_ = content_;
-        if (((bitField0_ & 0x00000008) == 0x00000008)) {
-          tags_ = tags_.getUnmodifiableView();
-          bitField0_ = (bitField0_ & ~0x00000008);
+        if (tagBuilder_ == null) {
+          if (((bitField0_ & 0x00000008) == 0x00000008)) {
+            tag_ = java.util.Collections.unmodifiableList(tag_);
+            bitField0_ = (bitField0_ & ~0x00000008);
+          }
+          result.tag_ = tag_;
+        } else {
+          result.tag_ = tagBuilder_.build();
         }
-        result.tags_ = tags_;
         result.posted_ = posted_;
         result.bitField0_ = to_bitField0_;
         onBuilt();
@@ -2187,15 +2203,31 @@ public final class Protobuf {
           content_ = other.content_;
           onChanged();
         }
-        if (!other.tags_.isEmpty()) {
-          if (tags_.isEmpty()) {
-            tags_ = other.tags_;
-            bitField0_ = (bitField0_ & ~0x00000008);
-          } else {
-            ensureTagsIsMutable();
-            tags_.addAll(other.tags_);
+        if (tagBuilder_ == null) {
+          if (!other.tag_.isEmpty()) {
+            if (tag_.isEmpty()) {
+              tag_ = other.tag_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+            } else {
+              ensureTagIsMutable();
+              tag_.addAll(other.tag_);
+            }
+            onChanged();
           }
-          onChanged();
+        } else {
+          if (!other.tag_.isEmpty()) {
+            if (tagBuilder_.isEmpty()) {
+              tagBuilder_.dispose();
+              tagBuilder_ = null;
+              tag_ = other.tag_;
+              bitField0_ = (bitField0_ & ~0x00000008);
+              tagBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getTagFieldBuilder() : null;
+            } else {
+              tagBuilder_.addAllMessages(other.tag_);
+            }
+          }
         }
         if (other.getPosted() != 0L) {
           setPosted(other.getPosted());
@@ -2439,98 +2471,244 @@ public final class Protobuf {
         return this;
       }
 
-      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-      private void ensureTagsIsMutable() {
+      private java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> tag_ =
+        java.util.Collections.emptyList();
+      private void ensureTagIsMutable() {
         if (!((bitField0_ & 0x00000008) == 0x00000008)) {
-          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+          tag_ = new java.util.ArrayList<com.arctro.ssn.protobuf.Protobuf.Tag>(tag_);
           bitField0_ |= 0x00000008;
          }
       }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.Tag, com.arctro.ssn.protobuf.Protobuf.Tag.Builder, com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> tagBuilder_;
+
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public com.google.protobuf.ProtocolStringList
-          getTagsList() {
-        return tags_.getUnmodifiableView();
+      public java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> getTagList() {
+        if (tagBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(tag_);
+        } else {
+          return tagBuilder_.getMessageList();
+        }
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public int getTagsCount() {
-        return tags_.size();
+      public int getTagCount() {
+        if (tagBuilder_ == null) {
+          return tag_.size();
+        } else {
+          return tagBuilder_.getCount();
+        }
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public java.lang.String getTags(int index) {
-        return tags_.get(index);
+      public com.arctro.ssn.protobuf.Protobuf.Tag getTag(int index) {
+        if (tagBuilder_ == null) {
+          return tag_.get(index);
+        } else {
+          return tagBuilder_.getMessage(index);
+        }
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public com.google.protobuf.ByteString
-          getTagsBytes(int index) {
-        return tags_.getByteString(index);
-      }
-      /**
-       * <code>repeated string tags = 5;</code>
-       */
-      public Builder setTags(
-          int index, java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
-        tags_.set(index, value);
-        onChanged();
+      public Builder setTag(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag value) {
+        if (tagBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTagIsMutable();
+          tag_.set(index, value);
+          onChanged();
+        } else {
+          tagBuilder_.setMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public Builder addTags(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  ensureTagsIsMutable();
-        tags_.add(value);
-        onChanged();
+      public Builder setTag(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag.Builder builderForValue) {
+        if (tagBuilder_ == null) {
+          ensureTagIsMutable();
+          tag_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          tagBuilder_.setMessage(index, builderForValue.build());
+        }
         return this;
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public Builder addAllTags(
-          java.lang.Iterable<java.lang.String> values) {
-        ensureTagsIsMutable();
-        com.google.protobuf.AbstractMessageLite.Builder.addAll(
-            values, tags_);
-        onChanged();
+      public Builder addTag(com.arctro.ssn.protobuf.Protobuf.Tag value) {
+        if (tagBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTagIsMutable();
+          tag_.add(value);
+          onChanged();
+        } else {
+          tagBuilder_.addMessage(value);
+        }
         return this;
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public Builder clearTags() {
-        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
-        bitField0_ = (bitField0_ & ~0x00000008);
-        onChanged();
+      public Builder addTag(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag value) {
+        if (tagBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureTagIsMutable();
+          tag_.add(index, value);
+          onChanged();
+        } else {
+          tagBuilder_.addMessage(index, value);
+        }
         return this;
       }
       /**
-       * <code>repeated string tags = 5;</code>
+       * <code>repeated .Tag tag = 5;</code>
        */
-      public Builder addTagsBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        ensureTagsIsMutable();
-        tags_.add(value);
-        onChanged();
+      public Builder addTag(
+          com.arctro.ssn.protobuf.Protobuf.Tag.Builder builderForValue) {
+        if (tagBuilder_ == null) {
+          ensureTagIsMutable();
+          tag_.add(builderForValue.build());
+          onChanged();
+        } else {
+          tagBuilder_.addMessage(builderForValue.build());
+        }
         return this;
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public Builder addTag(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag.Builder builderForValue) {
+        if (tagBuilder_ == null) {
+          ensureTagIsMutable();
+          tag_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          tagBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public Builder addAllTag(
+          java.lang.Iterable<? extends com.arctro.ssn.protobuf.Protobuf.Tag> values) {
+        if (tagBuilder_ == null) {
+          ensureTagIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, tag_);
+          onChanged();
+        } else {
+          tagBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public Builder clearTag() {
+        if (tagBuilder_ == null) {
+          tag_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000008);
+          onChanged();
+        } else {
+          tagBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public Builder removeTag(int index) {
+        if (tagBuilder_ == null) {
+          ensureTagIsMutable();
+          tag_.remove(index);
+          onChanged();
+        } else {
+          tagBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag.Builder getTagBuilder(
+          int index) {
+        return getTagFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.TagOrBuilder getTagOrBuilder(
+          int index) {
+        if (tagBuilder_ == null) {
+          return tag_.get(index);  } else {
+          return tagBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public java.util.List<? extends com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+           getTagOrBuilderList() {
+        if (tagBuilder_ != null) {
+          return tagBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(tag_);
+        }
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag.Builder addTagBuilder() {
+        return getTagFieldBuilder().addBuilder(
+            com.arctro.ssn.protobuf.Protobuf.Tag.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag.Builder addTagBuilder(
+          int index) {
+        return getTagFieldBuilder().addBuilder(
+            index, com.arctro.ssn.protobuf.Protobuf.Tag.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Tag tag = 5;</code>
+       */
+      public java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag.Builder> 
+           getTagBuilderList() {
+        return getTagFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.Tag, com.arctro.ssn.protobuf.Protobuf.Tag.Builder, com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+          getTagFieldBuilder() {
+        if (tagBuilder_ == null) {
+          tagBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.arctro.ssn.protobuf.Protobuf.Tag, com.arctro.ssn.protobuf.Protobuf.Tag.Builder, com.arctro.ssn.protobuf.Protobuf.TagOrBuilder>(
+                  tag_,
+                  ((bitField0_ & 0x00000008) == 0x00000008),
+                  getParentForChildren(),
+                  isClean());
+          tag_ = null;
+        }
+        return tagBuilder_;
       }
 
       private long posted_ ;
@@ -4478,6 +4656,1307 @@ public final class Protobuf {
 
   }
 
+  public interface TagOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Tag)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional int32 id = 1;</code>
+     */
+    int getId();
+
+    /**
+     * <code>optional string tag = 2;</code>
+     */
+    java.lang.String getTag();
+    /**
+     * <code>optional string tag = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getTagBytes();
+  }
+  /**
+   * Protobuf type {@code Tag}
+   */
+  public  static final class Tag extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Tag)
+      TagOrBuilder {
+    // Use Tag.newBuilder() to construct.
+    private Tag(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Tag() {
+      id_ = 0;
+      tag_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Tag(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 8: {
+
+              id_ = input.readInt32();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              tag_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_Tag_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_Tag_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.arctro.ssn.protobuf.Protobuf.Tag.class, com.arctro.ssn.protobuf.Protobuf.Tag.Builder.class);
+    }
+
+    public static final int ID_FIELD_NUMBER = 1;
+    private int id_;
+    /**
+     * <code>optional int32 id = 1;</code>
+     */
+    public int getId() {
+      return id_;
+    }
+
+    public static final int TAG_FIELD_NUMBER = 2;
+    private volatile java.lang.Object tag_;
+    /**
+     * <code>optional string tag = 2;</code>
+     */
+    public java.lang.String getTag() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        tag_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string tag = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTagBytes() {
+      java.lang.Object ref = tag_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        tag_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (id_ != 0) {
+        output.writeInt32(1, id_);
+      }
+      if (!getTagBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tag_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (id_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(1, id_);
+      }
+      if (!getTagBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tag_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.Tag)) {
+        return super.equals(obj);
+      }
+      com.arctro.ssn.protobuf.Protobuf.Tag other = (com.arctro.ssn.protobuf.Protobuf.Tag) obj;
+
+      boolean result = true;
+      result = result && (getId()
+          == other.getId());
+      result = result && getTag()
+          .equals(other.getTag());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + getId();
+      hash = (37 * hash) + TAG_FIELD_NUMBER;
+      hash = (53 * hash) + getTag().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Tag parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.Tag prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Tag}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Tag)
+        com.arctro.ssn.protobuf.Protobuf.TagOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_Tag_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_Tag_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.arctro.ssn.protobuf.Protobuf.Tag.class, com.arctro.ssn.protobuf.Protobuf.Tag.Builder.class);
+      }
+
+      // Construct using com.arctro.ssn.protobuf.Protobuf.Tag.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        id_ = 0;
+
+        tag_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_Tag_descriptor;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.Tag getDefaultInstanceForType() {
+        return com.arctro.ssn.protobuf.Protobuf.Tag.getDefaultInstance();
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.Tag build() {
+        com.arctro.ssn.protobuf.Protobuf.Tag result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.Tag buildPartial() {
+        com.arctro.ssn.protobuf.Protobuf.Tag result = new com.arctro.ssn.protobuf.Protobuf.Tag(this);
+        result.id_ = id_;
+        result.tag_ = tag_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.arctro.ssn.protobuf.Protobuf.Tag) {
+          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.Tag)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.Tag other) {
+        if (other == com.arctro.ssn.protobuf.Protobuf.Tag.getDefaultInstance()) return this;
+        if (other.getId() != 0) {
+          setId(other.getId());
+        }
+        if (!other.getTag().isEmpty()) {
+          tag_ = other.tag_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.arctro.ssn.protobuf.Protobuf.Tag parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.Tag) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private int id_ ;
+      /**
+       * <code>optional int32 id = 1;</code>
+       */
+      public int getId() {
+        return id_;
+      }
+      /**
+       * <code>optional int32 id = 1;</code>
+       */
+      public Builder setId(int value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object tag_ = "";
+      /**
+       * <code>optional string tag = 2;</code>
+       */
+      public java.lang.String getTag() {
+        java.lang.Object ref = tag_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          tag_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string tag = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTagBytes() {
+        java.lang.Object ref = tag_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          tag_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string tag = 2;</code>
+       */
+      public Builder setTag(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        tag_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string tag = 2;</code>
+       */
+      public Builder clearTag() {
+        
+        tag_ = getDefaultInstance().getTag();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string tag = 2;</code>
+       */
+      public Builder setTagBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        tag_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Tag)
+    }
+
+    // @@protoc_insertion_point(class_scope:Tag)
+    private static final com.arctro.ssn.protobuf.Protobuf.Tag DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.Tag();
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.Tag getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Tag>
+        PARSER = new com.google.protobuf.AbstractParser<Tag>() {
+      public Tag parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Tag(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Tag> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Tag> getParserForType() {
+      return PARSER;
+    }
+
+    public com.arctro.ssn.protobuf.Protobuf.Tag getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface TagCollectionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:TagCollection)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> 
+        getListList();
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.Tag getList(int index);
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    int getListCount();
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    java.util.List<? extends com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+        getListOrBuilderList();
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.TagOrBuilder getListOrBuilder(
+        int index);
+  }
+  /**
+   * Protobuf type {@code TagCollection}
+   */
+  public  static final class TagCollection extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:TagCollection)
+      TagCollectionOrBuilder {
+    // Use TagCollection.newBuilder() to construct.
+    private TagCollection(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private TagCollection() {
+      list_ = java.util.Collections.emptyList();
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private TagCollection(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              if (!((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+                list_ = new java.util.ArrayList<com.arctro.ssn.protobuf.Protobuf.Tag>();
+                mutable_bitField0_ |= 0x00000001;
+              }
+              list_.add(
+                  input.readMessage(com.arctro.ssn.protobuf.Protobuf.Tag.parser(), extensionRegistry));
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        if (((mutable_bitField0_ & 0x00000001) == 0x00000001)) {
+          list_ = java.util.Collections.unmodifiableList(list_);
+        }
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_TagCollection_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_TagCollection_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.arctro.ssn.protobuf.Protobuf.TagCollection.class, com.arctro.ssn.protobuf.Protobuf.TagCollection.Builder.class);
+    }
+
+    public static final int LIST_FIELD_NUMBER = 1;
+    private java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> list_;
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    public java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> getListList() {
+      return list_;
+    }
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    public java.util.List<? extends com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+        getListOrBuilderList() {
+      return list_;
+    }
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    public int getListCount() {
+      return list_.size();
+    }
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.Tag getList(int index) {
+      return list_.get(index);
+    }
+    /**
+     * <code>repeated .Tag list = 1;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.TagOrBuilder getListOrBuilder(
+        int index) {
+      return list_.get(index);
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      for (int i = 0; i < list_.size(); i++) {
+        output.writeMessage(1, list_.get(i));
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      for (int i = 0; i < list_.size(); i++) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, list_.get(i));
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.TagCollection)) {
+        return super.equals(obj);
+      }
+      com.arctro.ssn.protobuf.Protobuf.TagCollection other = (com.arctro.ssn.protobuf.Protobuf.TagCollection) obj;
+
+      boolean result = true;
+      result = result && getListList()
+          .equals(other.getListList());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (getListCount() > 0) {
+        hash = (37 * hash) + LIST_FIELD_NUMBER;
+        hash = (53 * hash) + getListList().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.TagCollection prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code TagCollection}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:TagCollection)
+        com.arctro.ssn.protobuf.Protobuf.TagCollectionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_TagCollection_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_TagCollection_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.arctro.ssn.protobuf.Protobuf.TagCollection.class, com.arctro.ssn.protobuf.Protobuf.TagCollection.Builder.class);
+      }
+
+      // Construct using com.arctro.ssn.protobuf.Protobuf.TagCollection.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+          getListFieldBuilder();
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (listBuilder_ == null) {
+          list_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+        } else {
+          listBuilder_.clear();
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_TagCollection_descriptor;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.TagCollection getDefaultInstanceForType() {
+        return com.arctro.ssn.protobuf.Protobuf.TagCollection.getDefaultInstance();
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.TagCollection build() {
+        com.arctro.ssn.protobuf.Protobuf.TagCollection result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.TagCollection buildPartial() {
+        com.arctro.ssn.protobuf.Protobuf.TagCollection result = new com.arctro.ssn.protobuf.Protobuf.TagCollection(this);
+        int from_bitField0_ = bitField0_;
+        if (listBuilder_ == null) {
+          if (((bitField0_ & 0x00000001) == 0x00000001)) {
+            list_ = java.util.Collections.unmodifiableList(list_);
+            bitField0_ = (bitField0_ & ~0x00000001);
+          }
+          result.list_ = list_;
+        } else {
+          result.list_ = listBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.arctro.ssn.protobuf.Protobuf.TagCollection) {
+          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.TagCollection)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.TagCollection other) {
+        if (other == com.arctro.ssn.protobuf.Protobuf.TagCollection.getDefaultInstance()) return this;
+        if (listBuilder_ == null) {
+          if (!other.list_.isEmpty()) {
+            if (list_.isEmpty()) {
+              list_ = other.list_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+            } else {
+              ensureListIsMutable();
+              list_.addAll(other.list_);
+            }
+            onChanged();
+          }
+        } else {
+          if (!other.list_.isEmpty()) {
+            if (listBuilder_.isEmpty()) {
+              listBuilder_.dispose();
+              listBuilder_ = null;
+              list_ = other.list_;
+              bitField0_ = (bitField0_ & ~0x00000001);
+              listBuilder_ = 
+                com.google.protobuf.GeneratedMessageV3.alwaysUseFieldBuilders ?
+                   getListFieldBuilder() : null;
+            } else {
+              listBuilder_.addAllMessages(other.list_);
+            }
+          }
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.arctro.ssn.protobuf.Protobuf.TagCollection parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.TagCollection) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+      private int bitField0_;
+
+      private java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> list_ =
+        java.util.Collections.emptyList();
+      private void ensureListIsMutable() {
+        if (!((bitField0_ & 0x00000001) == 0x00000001)) {
+          list_ = new java.util.ArrayList<com.arctro.ssn.protobuf.Protobuf.Tag>(list_);
+          bitField0_ |= 0x00000001;
+         }
+      }
+
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.Tag, com.arctro.ssn.protobuf.Protobuf.Tag.Builder, com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> listBuilder_;
+
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag> getListList() {
+        if (listBuilder_ == null) {
+          return java.util.Collections.unmodifiableList(list_);
+        } else {
+          return listBuilder_.getMessageList();
+        }
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public int getListCount() {
+        if (listBuilder_ == null) {
+          return list_.size();
+        } else {
+          return listBuilder_.getCount();
+        }
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag getList(int index) {
+        if (listBuilder_ == null) {
+          return list_.get(index);
+        } else {
+          return listBuilder_.getMessage(index);
+        }
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder setList(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.set(index, value);
+          onChanged();
+        } else {
+          listBuilder_.setMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder setList(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.set(index, builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.setMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder addList(com.arctro.ssn.protobuf.Protobuf.Tag value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.add(value);
+          onChanged();
+        } else {
+          listBuilder_.addMessage(value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder addList(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag value) {
+        if (listBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          ensureListIsMutable();
+          list_.add(index, value);
+          onChanged();
+        } else {
+          listBuilder_.addMessage(index, value);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder addList(
+          com.arctro.ssn.protobuf.Protobuf.Tag.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.add(builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.addMessage(builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder addList(
+          int index, com.arctro.ssn.protobuf.Protobuf.Tag.Builder builderForValue) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.add(index, builderForValue.build());
+          onChanged();
+        } else {
+          listBuilder_.addMessage(index, builderForValue.build());
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder addAllList(
+          java.lang.Iterable<? extends com.arctro.ssn.protobuf.Protobuf.Tag> values) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          com.google.protobuf.AbstractMessageLite.Builder.addAll(
+              values, list_);
+          onChanged();
+        } else {
+          listBuilder_.addAllMessages(values);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder clearList() {
+        if (listBuilder_ == null) {
+          list_ = java.util.Collections.emptyList();
+          bitField0_ = (bitField0_ & ~0x00000001);
+          onChanged();
+        } else {
+          listBuilder_.clear();
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public Builder removeList(int index) {
+        if (listBuilder_ == null) {
+          ensureListIsMutable();
+          list_.remove(index);
+          onChanged();
+        } else {
+          listBuilder_.remove(index);
+        }
+        return this;
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag.Builder getListBuilder(
+          int index) {
+        return getListFieldBuilder().getBuilder(index);
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.TagOrBuilder getListOrBuilder(
+          int index) {
+        if (listBuilder_ == null) {
+          return list_.get(index);  } else {
+          return listBuilder_.getMessageOrBuilder(index);
+        }
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public java.util.List<? extends com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+           getListOrBuilderList() {
+        if (listBuilder_ != null) {
+          return listBuilder_.getMessageOrBuilderList();
+        } else {
+          return java.util.Collections.unmodifiableList(list_);
+        }
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag.Builder addListBuilder() {
+        return getListFieldBuilder().addBuilder(
+            com.arctro.ssn.protobuf.Protobuf.Tag.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.Tag.Builder addListBuilder(
+          int index) {
+        return getListFieldBuilder().addBuilder(
+            index, com.arctro.ssn.protobuf.Protobuf.Tag.getDefaultInstance());
+      }
+      /**
+       * <code>repeated .Tag list = 1;</code>
+       */
+      public java.util.List<com.arctro.ssn.protobuf.Protobuf.Tag.Builder> 
+           getListBuilderList() {
+        return getListFieldBuilder().getBuilderList();
+      }
+      private com.google.protobuf.RepeatedFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.Tag, com.arctro.ssn.protobuf.Protobuf.Tag.Builder, com.arctro.ssn.protobuf.Protobuf.TagOrBuilder> 
+          getListFieldBuilder() {
+        if (listBuilder_ == null) {
+          listBuilder_ = new com.google.protobuf.RepeatedFieldBuilderV3<
+              com.arctro.ssn.protobuf.Protobuf.Tag, com.arctro.ssn.protobuf.Protobuf.Tag.Builder, com.arctro.ssn.protobuf.Protobuf.TagOrBuilder>(
+                  list_,
+                  ((bitField0_ & 0x00000001) == 0x00000001),
+                  getParentForChildren(),
+                  isClean());
+          list_ = null;
+        }
+        return listBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:TagCollection)
+    }
+
+    // @@protoc_insertion_point(class_scope:TagCollection)
+    private static final com.arctro.ssn.protobuf.Protobuf.TagCollection DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.TagCollection();
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.TagCollection getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<TagCollection>
+        PARSER = new com.google.protobuf.AbstractParser<TagCollection>() {
+      public TagCollection parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new TagCollection(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<TagCollection> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<TagCollection> getParserForType() {
+      return PARSER;
+    }
+
+    public com.arctro.ssn.protobuf.Protobuf.TagCollection getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ShortUser_descriptor;
   private static final 
@@ -4508,6 +5987,16 @@ public final class Protobuf {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SessionSignature_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Tag_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Tag_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TagCollection_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TagCollection_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -4520,14 +6009,16 @@ public final class Protobuf {
       "\n\016Protobuf.proto\"K\n\tShortUser\022\n\n\002id\030\001 \001(" +
       "\005\022\013\n\003cid\030\002 \001(\t\022\022\n\nfirst_name\030\003 \001(\t\022\021\n\tla" +
       "st_name\030\004 \001(\t\"/\n\023ShortUserCollection\022\030\n\004" +
-      "list\030\001 \003(\0132\n.ShortUser\"[\n\004Post\022\n\n\002id\030\001 \001" +
+      "list\030\001 \003(\0132\n.ShortUser\"`\n\004Post\022\n\n\002id\030\001 \001" +
       "(\005\022\030\n\004user\030\002 \001(\0132\n.ShortUser\022\017\n\007content\030" +
-      "\003 \001(\t\022\014\n\004tags\030\005 \003(\t\022\016\n\006posted\030\004 \001(\003\"%\n\016P" +
-      "ostCollection\022\023\n\004list\030\001 \003(\0132\005.Post\"(\n\007Se" +
-      "ssion\022\r\n\005token\030\001 \001(\t\022\016\n\006expire\030\002 \001(\003\"6\n\020" +
-      "SessionSignature\022\017\n\007session\030\001 \001(\014\022\021\n\tsig" +
-      "nature\030\002 \001(\tB\031\n\027com.arctro.ssn.protobufb",
-      "\006proto3"
+      "\003 \001(\t\022\021\n\003tag\030\005 \003(\0132\004.Tag\022\016\n\006posted\030\004 \001(\003" +
+      "\"%\n\016PostCollection\022\023\n\004list\030\001 \003(\0132\005.Post\"" +
+      "(\n\007Session\022\r\n\005token\030\001 \001(\t\022\016\n\006expire\030\002 \001(" +
+      "\003\"6\n\020SessionSignature\022\017\n\007session\030\001 \001(\014\022\021" +
+      "\n\tsignature\030\002 \001(\t\"\036\n\003Tag\022\n\n\002id\030\001 \001(\005\022\013\n\003",
+      "tag\030\002 \001(\t\"#\n\rTagCollection\022\022\n\004list\030\001 \003(\013" +
+      "2\004.TagB\031\n\027com.arctro.ssn.protobufb\006proto" +
+      "3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4558,7 +6049,7 @@ public final class Protobuf {
     internal_static_Post_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Post_descriptor,
-        new java.lang.String[] { "Id", "User", "Content", "Tags", "Posted", });
+        new java.lang.String[] { "Id", "User", "Content", "Tag", "Posted", });
     internal_static_PostCollection_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_PostCollection_fieldAccessorTable = new
@@ -4577,6 +6068,18 @@ public final class Protobuf {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_SessionSignature_descriptor,
         new java.lang.String[] { "Session", "Signature", });
+    internal_static_Tag_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Tag_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Tag_descriptor,
+        new java.lang.String[] { "Id", "Tag", });
+    internal_static_TagCollection_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_TagCollection_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_TagCollection_descriptor,
+        new java.lang.String[] { "List", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
