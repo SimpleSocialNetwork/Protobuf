@@ -14,6 +14,113 @@ public final class Protobuf {
     registerAllExtensions(
         (com.google.protobuf.ExtensionRegistryLite) registry);
   }
+  /**
+   * Protobuf enum {@code UserType}
+   */
+  public enum UserType
+      implements com.google.protobuf.ProtocolMessageEnum {
+    /**
+     * <code>USER = 0;</code>
+     */
+    USER(0),
+    /**
+     * <code>MOD = 1;</code>
+     */
+    MOD(1),
+    /**
+     * <code>ADMIN = 2;</code>
+     */
+    ADMIN(2),
+    UNRECOGNIZED(-1),
+    ;
+
+    /**
+     * <code>USER = 0;</code>
+     */
+    public static final int USER_VALUE = 0;
+    /**
+     * <code>MOD = 1;</code>
+     */
+    public static final int MOD_VALUE = 1;
+    /**
+     * <code>ADMIN = 2;</code>
+     */
+    public static final int ADMIN_VALUE = 2;
+
+
+    public final int getNumber() {
+      if (this == UNRECOGNIZED) {
+        throw new java.lang.IllegalArgumentException(
+            "Can't get the number of an unknown enum value.");
+      }
+      return value;
+    }
+
+    /**
+     * @deprecated Use {@link #forNumber(int)} instead.
+     */
+    @java.lang.Deprecated
+    public static UserType valueOf(int value) {
+      return forNumber(value);
+    }
+
+    public static UserType forNumber(int value) {
+      switch (value) {
+        case 0: return USER;
+        case 1: return MOD;
+        case 2: return ADMIN;
+        default: return null;
+      }
+    }
+
+    public static com.google.protobuf.Internal.EnumLiteMap<UserType>
+        internalGetValueMap() {
+      return internalValueMap;
+    }
+    private static final com.google.protobuf.Internal.EnumLiteMap<
+        UserType> internalValueMap =
+          new com.google.protobuf.Internal.EnumLiteMap<UserType>() {
+            public UserType findValueByNumber(int number) {
+              return UserType.forNumber(number);
+            }
+          };
+
+    public final com.google.protobuf.Descriptors.EnumValueDescriptor
+        getValueDescriptor() {
+      return getDescriptor().getValues().get(ordinal());
+    }
+    public final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptorForType() {
+      return getDescriptor();
+    }
+    public static final com.google.protobuf.Descriptors.EnumDescriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.getDescriptor().getEnumTypes().get(0);
+    }
+
+    private static final UserType[] VALUES = values();
+
+    public static UserType valueOf(
+        com.google.protobuf.Descriptors.EnumValueDescriptor desc) {
+      if (desc.getType() != getDescriptor()) {
+        throw new java.lang.IllegalArgumentException(
+          "EnumValueDescriptor is not for this type.");
+      }
+      if (desc.getIndex() == -1) {
+        return UNRECOGNIZED;
+      }
+      return VALUES[desc.getIndex()];
+    }
+
+    private final int value;
+
+    private UserType(int value) {
+      this.value = value;
+    }
+
+    // @@protoc_insertion_point(enum_scope:UserType)
+  }
+
   public interface ShortUserOrBuilder extends
       // @@protoc_insertion_point(interface_extends:ShortUser)
       com.google.protobuf.MessageOrBuilder {
@@ -3520,1142 +3627,6 @@ public final class Protobuf {
 
   }
 
-  public interface SessionOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:Session)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional string token = 1;</code>
-     */
-    java.lang.String getToken();
-    /**
-     * <code>optional string token = 1;</code>
-     */
-    com.google.protobuf.ByteString
-        getTokenBytes();
-
-    /**
-     * <code>optional int64 expire = 2;</code>
-     */
-    long getExpire();
-  }
-  /**
-   * Protobuf type {@code Session}
-   */
-  public  static final class Session extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:Session)
-      SessionOrBuilder {
-    // Use Session.newBuilder() to construct.
-    private Session(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private Session() {
-      token_ = "";
-      expire_ = 0L;
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private Session(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              token_ = s;
-              break;
-            }
-            case 16: {
-
-              expire_ = input.readInt64();
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.arctro.ssn.protobuf.Protobuf.Session.class, com.arctro.ssn.protobuf.Protobuf.Session.Builder.class);
-    }
-
-    public static final int TOKEN_FIELD_NUMBER = 1;
-    private volatile java.lang.Object token_;
-    /**
-     * <code>optional string token = 1;</code>
-     */
-    public java.lang.String getToken() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        token_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string token = 1;</code>
-     */
-    public com.google.protobuf.ByteString
-        getTokenBytes() {
-      java.lang.Object ref = token_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        token_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    public static final int EXPIRE_FIELD_NUMBER = 2;
-    private long expire_;
-    /**
-     * <code>optional int64 expire = 2;</code>
-     */
-    public long getExpire() {
-      return expire_;
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!getTokenBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
-      }
-      if (expire_ != 0L) {
-        output.writeInt64(2, expire_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!getTokenBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
-      }
-      if (expire_ != 0L) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeInt64Size(2, expire_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.Session)) {
-        return super.equals(obj);
-      }
-      com.arctro.ssn.protobuf.Protobuf.Session other = (com.arctro.ssn.protobuf.Protobuf.Session) obj;
-
-      boolean result = true;
-      result = result && getToken()
-          .equals(other.getToken());
-      result = result && (getExpire()
-          == other.getExpire());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
-      hash = (53 * hash) + getToken().hashCode();
-      hash = (37 * hash) + EXPIRE_FIELD_NUMBER;
-      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
-          getExpire());
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.Session prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code Session}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:Session)
-        com.arctro.ssn.protobuf.Protobuf.SessionOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.arctro.ssn.protobuf.Protobuf.Session.class, com.arctro.ssn.protobuf.Protobuf.Session.Builder.class);
-      }
-
-      // Construct using com.arctro.ssn.protobuf.Protobuf.Session.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        token_ = "";
-
-        expire_ = 0L;
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_descriptor;
-      }
-
-      public com.arctro.ssn.protobuf.Protobuf.Session getDefaultInstanceForType() {
-        return com.arctro.ssn.protobuf.Protobuf.Session.getDefaultInstance();
-      }
-
-      public com.arctro.ssn.protobuf.Protobuf.Session build() {
-        com.arctro.ssn.protobuf.Protobuf.Session result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.arctro.ssn.protobuf.Protobuf.Session buildPartial() {
-        com.arctro.ssn.protobuf.Protobuf.Session result = new com.arctro.ssn.protobuf.Protobuf.Session(this);
-        result.token_ = token_;
-        result.expire_ = expire_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.arctro.ssn.protobuf.Protobuf.Session) {
-          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.Session)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.Session other) {
-        if (other == com.arctro.ssn.protobuf.Protobuf.Session.getDefaultInstance()) return this;
-        if (!other.getToken().isEmpty()) {
-          token_ = other.token_;
-          onChanged();
-        }
-        if (other.getExpire() != 0L) {
-          setExpire(other.getExpire());
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.arctro.ssn.protobuf.Protobuf.Session parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.Session) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private java.lang.Object token_ = "";
-      /**
-       * <code>optional string token = 1;</code>
-       */
-      public java.lang.String getToken() {
-        java.lang.Object ref = token_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          token_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string token = 1;</code>
-       */
-      public com.google.protobuf.ByteString
-          getTokenBytes() {
-        java.lang.Object ref = token_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          token_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string token = 1;</code>
-       */
-      public Builder setToken(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        token_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string token = 1;</code>
-       */
-      public Builder clearToken() {
-        
-        token_ = getDefaultInstance().getToken();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string token = 1;</code>
-       */
-      public Builder setTokenBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        token_ = value;
-        onChanged();
-        return this;
-      }
-
-      private long expire_ ;
-      /**
-       * <code>optional int64 expire = 2;</code>
-       */
-      public long getExpire() {
-        return expire_;
-      }
-      /**
-       * <code>optional int64 expire = 2;</code>
-       */
-      public Builder setExpire(long value) {
-        
-        expire_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional int64 expire = 2;</code>
-       */
-      public Builder clearExpire() {
-        
-        expire_ = 0L;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:Session)
-    }
-
-    // @@protoc_insertion_point(class_scope:Session)
-    private static final com.arctro.ssn.protobuf.Protobuf.Session DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.Session();
-    }
-
-    public static com.arctro.ssn.protobuf.Protobuf.Session getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<Session>
-        PARSER = new com.google.protobuf.AbstractParser<Session>() {
-      public Session parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new Session(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<Session> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<Session> getParserForType() {
-      return PARSER;
-    }
-
-    public com.arctro.ssn.protobuf.Protobuf.Session getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
-  public interface SessionSignatureOrBuilder extends
-      // @@protoc_insertion_point(interface_extends:SessionSignature)
-      com.google.protobuf.MessageOrBuilder {
-
-    /**
-     * <code>optional bytes session = 1;</code>
-     */
-    com.google.protobuf.ByteString getSession();
-
-    /**
-     * <code>optional string signature = 2;</code>
-     */
-    java.lang.String getSignature();
-    /**
-     * <code>optional string signature = 2;</code>
-     */
-    com.google.protobuf.ByteString
-        getSignatureBytes();
-  }
-  /**
-   * Protobuf type {@code SessionSignature}
-   */
-  public  static final class SessionSignature extends
-      com.google.protobuf.GeneratedMessageV3 implements
-      // @@protoc_insertion_point(message_implements:SessionSignature)
-      SessionSignatureOrBuilder {
-    // Use SessionSignature.newBuilder() to construct.
-    private SessionSignature(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
-      super(builder);
-    }
-    private SessionSignature() {
-      session_ = com.google.protobuf.ByteString.EMPTY;
-      signature_ = "";
-    }
-
-    @java.lang.Override
-    public final com.google.protobuf.UnknownFieldSet
-    getUnknownFields() {
-      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
-    }
-    private SessionSignature(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      this();
-      int mutable_bitField0_ = 0;
-      try {
-        boolean done = false;
-        while (!done) {
-          int tag = input.readTag();
-          switch (tag) {
-            case 0:
-              done = true;
-              break;
-            default: {
-              if (!input.skipField(tag)) {
-                done = true;
-              }
-              break;
-            }
-            case 10: {
-
-              session_ = input.readBytes();
-              break;
-            }
-            case 18: {
-              java.lang.String s = input.readStringRequireUtf8();
-
-              signature_ = s;
-              break;
-            }
-          }
-        }
-      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-        throw e.setUnfinishedMessage(this);
-      } catch (java.io.IOException e) {
-        throw new com.google.protobuf.InvalidProtocolBufferException(
-            e).setUnfinishedMessage(this);
-      } finally {
-        makeExtensionsImmutable();
-      }
-    }
-    public static final com.google.protobuf.Descriptors.Descriptor
-        getDescriptor() {
-      return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_descriptor;
-    }
-
-    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-        internalGetFieldAccessorTable() {
-      return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_fieldAccessorTable
-          .ensureFieldAccessorsInitialized(
-              com.arctro.ssn.protobuf.Protobuf.SessionSignature.class, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder.class);
-    }
-
-    public static final int SESSION_FIELD_NUMBER = 1;
-    private com.google.protobuf.ByteString session_;
-    /**
-     * <code>optional bytes session = 1;</code>
-     */
-    public com.google.protobuf.ByteString getSession() {
-      return session_;
-    }
-
-    public static final int SIGNATURE_FIELD_NUMBER = 2;
-    private volatile java.lang.Object signature_;
-    /**
-     * <code>optional string signature = 2;</code>
-     */
-    public java.lang.String getSignature() {
-      java.lang.Object ref = signature_;
-      if (ref instanceof java.lang.String) {
-        return (java.lang.String) ref;
-      } else {
-        com.google.protobuf.ByteString bs = 
-            (com.google.protobuf.ByteString) ref;
-        java.lang.String s = bs.toStringUtf8();
-        signature_ = s;
-        return s;
-      }
-    }
-    /**
-     * <code>optional string signature = 2;</code>
-     */
-    public com.google.protobuf.ByteString
-        getSignatureBytes() {
-      java.lang.Object ref = signature_;
-      if (ref instanceof java.lang.String) {
-        com.google.protobuf.ByteString b = 
-            com.google.protobuf.ByteString.copyFromUtf8(
-                (java.lang.String) ref);
-        signature_ = b;
-        return b;
-      } else {
-        return (com.google.protobuf.ByteString) ref;
-      }
-    }
-
-    private byte memoizedIsInitialized = -1;
-    public final boolean isInitialized() {
-      byte isInitialized = memoizedIsInitialized;
-      if (isInitialized == 1) return true;
-      if (isInitialized == 0) return false;
-
-      memoizedIsInitialized = 1;
-      return true;
-    }
-
-    public void writeTo(com.google.protobuf.CodedOutputStream output)
-                        throws java.io.IOException {
-      if (!session_.isEmpty()) {
-        output.writeBytes(1, session_);
-      }
-      if (!getSignatureBytes().isEmpty()) {
-        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, signature_);
-      }
-    }
-
-    public int getSerializedSize() {
-      int size = memoizedSize;
-      if (size != -1) return size;
-
-      size = 0;
-      if (!session_.isEmpty()) {
-        size += com.google.protobuf.CodedOutputStream
-          .computeBytesSize(1, session_);
-      }
-      if (!getSignatureBytes().isEmpty()) {
-        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, signature_);
-      }
-      memoizedSize = size;
-      return size;
-    }
-
-    private static final long serialVersionUID = 0L;
-    @java.lang.Override
-    public boolean equals(final java.lang.Object obj) {
-      if (obj == this) {
-       return true;
-      }
-      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.SessionSignature)) {
-        return super.equals(obj);
-      }
-      com.arctro.ssn.protobuf.Protobuf.SessionSignature other = (com.arctro.ssn.protobuf.Protobuf.SessionSignature) obj;
-
-      boolean result = true;
-      result = result && getSession()
-          .equals(other.getSession());
-      result = result && getSignature()
-          .equals(other.getSignature());
-      return result;
-    }
-
-    @java.lang.Override
-    public int hashCode() {
-      if (memoizedHashCode != 0) {
-        return memoizedHashCode;
-      }
-      int hash = 41;
-      hash = (19 * hash) + getDescriptorForType().hashCode();
-      hash = (37 * hash) + SESSION_FIELD_NUMBER;
-      hash = (53 * hash) + getSession().hashCode();
-      hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
-      hash = (53 * hash) + getSignature().hashCode();
-      hash = (29 * hash) + unknownFields.hashCode();
-      memoizedHashCode = hash;
-      return hash;
-    }
-
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
-        com.google.protobuf.ByteString data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
-        com.google.protobuf.ByteString data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(byte[] data)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
-        byte[] data,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws com.google.protobuf.InvalidProtocolBufferException {
-      return PARSER.parseFrom(data, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseDelimitedFrom(java.io.InputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseDelimitedFrom(
-        java.io.InputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
-        com.google.protobuf.CodedInputStream input)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input);
-    }
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
-        com.google.protobuf.CodedInputStream input,
-        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-        throws java.io.IOException {
-      return com.google.protobuf.GeneratedMessageV3
-          .parseWithIOException(PARSER, input, extensionRegistry);
-    }
-
-    public Builder newBuilderForType() { return newBuilder(); }
-    public static Builder newBuilder() {
-      return DEFAULT_INSTANCE.toBuilder();
-    }
-    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.SessionSignature prototype) {
-      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
-    }
-    public Builder toBuilder() {
-      return this == DEFAULT_INSTANCE
-          ? new Builder() : new Builder().mergeFrom(this);
-    }
-
-    @java.lang.Override
-    protected Builder newBuilderForType(
-        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-      Builder builder = new Builder(parent);
-      return builder;
-    }
-    /**
-     * Protobuf type {@code SessionSignature}
-     */
-    public static final class Builder extends
-        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
-        // @@protoc_insertion_point(builder_implements:SessionSignature)
-        com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder {
-      public static final com.google.protobuf.Descriptors.Descriptor
-          getDescriptor() {
-        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_descriptor;
-      }
-
-      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-          internalGetFieldAccessorTable() {
-        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_fieldAccessorTable
-            .ensureFieldAccessorsInitialized(
-                com.arctro.ssn.protobuf.Protobuf.SessionSignature.class, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder.class);
-      }
-
-      // Construct using com.arctro.ssn.protobuf.Protobuf.SessionSignature.newBuilder()
-      private Builder() {
-        maybeForceBuilderInitialization();
-      }
-
-      private Builder(
-          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
-        super(parent);
-        maybeForceBuilderInitialization();
-      }
-      private void maybeForceBuilderInitialization() {
-        if (com.google.protobuf.GeneratedMessageV3
-                .alwaysUseFieldBuilders) {
-        }
-      }
-      public Builder clear() {
-        super.clear();
-        session_ = com.google.protobuf.ByteString.EMPTY;
-
-        signature_ = "";
-
-        return this;
-      }
-
-      public com.google.protobuf.Descriptors.Descriptor
-          getDescriptorForType() {
-        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_descriptor;
-      }
-
-      public com.arctro.ssn.protobuf.Protobuf.SessionSignature getDefaultInstanceForType() {
-        return com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance();
-      }
-
-      public com.arctro.ssn.protobuf.Protobuf.SessionSignature build() {
-        com.arctro.ssn.protobuf.Protobuf.SessionSignature result = buildPartial();
-        if (!result.isInitialized()) {
-          throw newUninitializedMessageException(result);
-        }
-        return result;
-      }
-
-      public com.arctro.ssn.protobuf.Protobuf.SessionSignature buildPartial() {
-        com.arctro.ssn.protobuf.Protobuf.SessionSignature result = new com.arctro.ssn.protobuf.Protobuf.SessionSignature(this);
-        result.session_ = session_;
-        result.signature_ = signature_;
-        onBuilt();
-        return result;
-      }
-
-      public Builder clone() {
-        return (Builder) super.clone();
-      }
-      public Builder setField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.setField(field, value);
-      }
-      public Builder clearField(
-          com.google.protobuf.Descriptors.FieldDescriptor field) {
-        return (Builder) super.clearField(field);
-      }
-      public Builder clearOneof(
-          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
-        return (Builder) super.clearOneof(oneof);
-      }
-      public Builder setRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          int index, Object value) {
-        return (Builder) super.setRepeatedField(field, index, value);
-      }
-      public Builder addRepeatedField(
-          com.google.protobuf.Descriptors.FieldDescriptor field,
-          Object value) {
-        return (Builder) super.addRepeatedField(field, value);
-      }
-      public Builder mergeFrom(com.google.protobuf.Message other) {
-        if (other instanceof com.arctro.ssn.protobuf.Protobuf.SessionSignature) {
-          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.SessionSignature)other);
-        } else {
-          super.mergeFrom(other);
-          return this;
-        }
-      }
-
-      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.SessionSignature other) {
-        if (other == com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance()) return this;
-        if (other.getSession() != com.google.protobuf.ByteString.EMPTY) {
-          setSession(other.getSession());
-        }
-        if (!other.getSignature().isEmpty()) {
-          signature_ = other.signature_;
-          onChanged();
-        }
-        onChanged();
-        return this;
-      }
-
-      public final boolean isInitialized() {
-        return true;
-      }
-
-      public Builder mergeFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws java.io.IOException {
-        com.arctro.ssn.protobuf.Protobuf.SessionSignature parsedMessage = null;
-        try {
-          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
-        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
-          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.SessionSignature) e.getUnfinishedMessage();
-          throw e.unwrapIOException();
-        } finally {
-          if (parsedMessage != null) {
-            mergeFrom(parsedMessage);
-          }
-        }
-        return this;
-      }
-
-      private com.google.protobuf.ByteString session_ = com.google.protobuf.ByteString.EMPTY;
-      /**
-       * <code>optional bytes session = 1;</code>
-       */
-      public com.google.protobuf.ByteString getSession() {
-        return session_;
-      }
-      /**
-       * <code>optional bytes session = 1;</code>
-       */
-      public Builder setSession(com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        session_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional bytes session = 1;</code>
-       */
-      public Builder clearSession() {
-        
-        session_ = getDefaultInstance().getSession();
-        onChanged();
-        return this;
-      }
-
-      private java.lang.Object signature_ = "";
-      /**
-       * <code>optional string signature = 2;</code>
-       */
-      public java.lang.String getSignature() {
-        java.lang.Object ref = signature_;
-        if (!(ref instanceof java.lang.String)) {
-          com.google.protobuf.ByteString bs =
-              (com.google.protobuf.ByteString) ref;
-          java.lang.String s = bs.toStringUtf8();
-          signature_ = s;
-          return s;
-        } else {
-          return (java.lang.String) ref;
-        }
-      }
-      /**
-       * <code>optional string signature = 2;</code>
-       */
-      public com.google.protobuf.ByteString
-          getSignatureBytes() {
-        java.lang.Object ref = signature_;
-        if (ref instanceof String) {
-          com.google.protobuf.ByteString b = 
-              com.google.protobuf.ByteString.copyFromUtf8(
-                  (java.lang.String) ref);
-          signature_ = b;
-          return b;
-        } else {
-          return (com.google.protobuf.ByteString) ref;
-        }
-      }
-      /**
-       * <code>optional string signature = 2;</code>
-       */
-      public Builder setSignature(
-          java.lang.String value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  
-        signature_ = value;
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string signature = 2;</code>
-       */
-      public Builder clearSignature() {
-        
-        signature_ = getDefaultInstance().getSignature();
-        onChanged();
-        return this;
-      }
-      /**
-       * <code>optional string signature = 2;</code>
-       */
-      public Builder setSignatureBytes(
-          com.google.protobuf.ByteString value) {
-        if (value == null) {
-    throw new NullPointerException();
-  }
-  checkByteStringIsUtf8(value);
-        
-        signature_ = value;
-        onChanged();
-        return this;
-      }
-      public final Builder setUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-      public final Builder mergeUnknownFields(
-          final com.google.protobuf.UnknownFieldSet unknownFields) {
-        return this;
-      }
-
-
-      // @@protoc_insertion_point(builder_scope:SessionSignature)
-    }
-
-    // @@protoc_insertion_point(class_scope:SessionSignature)
-    private static final com.arctro.ssn.protobuf.Protobuf.SessionSignature DEFAULT_INSTANCE;
-    static {
-      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.SessionSignature();
-    }
-
-    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature getDefaultInstance() {
-      return DEFAULT_INSTANCE;
-    }
-
-    private static final com.google.protobuf.Parser<SessionSignature>
-        PARSER = new com.google.protobuf.AbstractParser<SessionSignature>() {
-      public SessionSignature parsePartialFrom(
-          com.google.protobuf.CodedInputStream input,
-          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
-          throws com.google.protobuf.InvalidProtocolBufferException {
-          return new SessionSignature(input, extensionRegistry);
-      }
-    };
-
-    public static com.google.protobuf.Parser<SessionSignature> parser() {
-      return PARSER;
-    }
-
-    @java.lang.Override
-    public com.google.protobuf.Parser<SessionSignature> getParserForType() {
-      return PARSER;
-    }
-
-    public com.arctro.ssn.protobuf.Protobuf.SessionSignature getDefaultInstanceForType() {
-      return DEFAULT_INSTANCE;
-    }
-
-  }
-
   public interface TagOrBuilder extends
       // @@protoc_insertion_point(interface_extends:Tag)
       com.google.protobuf.MessageOrBuilder {
@@ -6020,6 +4991,1896 @@ public final class Protobuf {
 
   }
 
+  public interface SessionOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:Session)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string token = 1;</code>
+     */
+    java.lang.String getToken();
+    /**
+     * <code>optional string token = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getTokenBytes();
+
+    /**
+     * <code>optional int64 expire = 2;</code>
+     */
+    long getExpire();
+  }
+  /**
+   * Protobuf type {@code Session}
+   */
+  public  static final class Session extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:Session)
+      SessionOrBuilder {
+    // Use Session.newBuilder() to construct.
+    private Session(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private Session() {
+      token_ = "";
+      expire_ = 0L;
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private Session(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              token_ = s;
+              break;
+            }
+            case 16: {
+
+              expire_ = input.readInt64();
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.arctro.ssn.protobuf.Protobuf.Session.class, com.arctro.ssn.protobuf.Protobuf.Session.Builder.class);
+    }
+
+    public static final int TOKEN_FIELD_NUMBER = 1;
+    private volatile java.lang.Object token_;
+    /**
+     * <code>optional string token = 1;</code>
+     */
+    public java.lang.String getToken() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        token_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string token = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTokenBytes() {
+      java.lang.Object ref = token_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        token_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int EXPIRE_FIELD_NUMBER = 2;
+    private long expire_;
+    /**
+     * <code>optional int64 expire = 2;</code>
+     */
+    public long getExpire() {
+      return expire_;
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getTokenBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, token_);
+      }
+      if (expire_ != 0L) {
+        output.writeInt64(2, expire_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getTokenBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, token_);
+      }
+      if (expire_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(2, expire_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.Session)) {
+        return super.equals(obj);
+      }
+      com.arctro.ssn.protobuf.Protobuf.Session other = (com.arctro.ssn.protobuf.Protobuf.Session) obj;
+
+      boolean result = true;
+      result = result && getToken()
+          .equals(other.getToken());
+      result = result && (getExpire()
+          == other.getExpire());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + TOKEN_FIELD_NUMBER;
+      hash = (53 * hash) + getToken().hashCode();
+      hash = (37 * hash) + EXPIRE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getExpire());
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.Session parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.Session prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code Session}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:Session)
+        com.arctro.ssn.protobuf.Protobuf.SessionOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.arctro.ssn.protobuf.Protobuf.Session.class, com.arctro.ssn.protobuf.Protobuf.Session.Builder.class);
+      }
+
+      // Construct using com.arctro.ssn.protobuf.Protobuf.Session.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        token_ = "";
+
+        expire_ = 0L;
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_Session_descriptor;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.Session getDefaultInstanceForType() {
+        return com.arctro.ssn.protobuf.Protobuf.Session.getDefaultInstance();
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.Session build() {
+        com.arctro.ssn.protobuf.Protobuf.Session result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.Session buildPartial() {
+        com.arctro.ssn.protobuf.Protobuf.Session result = new com.arctro.ssn.protobuf.Protobuf.Session(this);
+        result.token_ = token_;
+        result.expire_ = expire_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.arctro.ssn.protobuf.Protobuf.Session) {
+          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.Session)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.Session other) {
+        if (other == com.arctro.ssn.protobuf.Protobuf.Session.getDefaultInstance()) return this;
+        if (!other.getToken().isEmpty()) {
+          token_ = other.token_;
+          onChanged();
+        }
+        if (other.getExpire() != 0L) {
+          setExpire(other.getExpire());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.arctro.ssn.protobuf.Protobuf.Session parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.Session) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object token_ = "";
+      /**
+       * <code>optional string token = 1;</code>
+       */
+      public java.lang.String getToken() {
+        java.lang.Object ref = token_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          token_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string token = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTokenBytes() {
+        java.lang.Object ref = token_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          token_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string token = 1;</code>
+       */
+      public Builder setToken(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        token_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string token = 1;</code>
+       */
+      public Builder clearToken() {
+        
+        token_ = getDefaultInstance().getToken();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string token = 1;</code>
+       */
+      public Builder setTokenBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        token_ = value;
+        onChanged();
+        return this;
+      }
+
+      private long expire_ ;
+      /**
+       * <code>optional int64 expire = 2;</code>
+       */
+      public long getExpire() {
+        return expire_;
+      }
+      /**
+       * <code>optional int64 expire = 2;</code>
+       */
+      public Builder setExpire(long value) {
+        
+        expire_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int64 expire = 2;</code>
+       */
+      public Builder clearExpire() {
+        
+        expire_ = 0L;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:Session)
+    }
+
+    // @@protoc_insertion_point(class_scope:Session)
+    private static final com.arctro.ssn.protobuf.Protobuf.Session DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.Session();
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.Session getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<Session>
+        PARSER = new com.google.protobuf.AbstractParser<Session>() {
+      public Session parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new Session(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<Session> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<Session> getParserForType() {
+      return PARSER;
+    }
+
+    public com.arctro.ssn.protobuf.Protobuf.Session getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SessionSignatureOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SessionSignature)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional bytes session = 1;</code>
+     */
+    com.google.protobuf.ByteString getSession();
+
+    /**
+     * <code>optional string signature = 2;</code>
+     */
+    java.lang.String getSignature();
+    /**
+     * <code>optional string signature = 2;</code>
+     */
+    com.google.protobuf.ByteString
+        getSignatureBytes();
+  }
+  /**
+   * Protobuf type {@code SessionSignature}
+   */
+  public  static final class SessionSignature extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SessionSignature)
+      SessionSignatureOrBuilder {
+    // Use SessionSignature.newBuilder() to construct.
+    private SessionSignature(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SessionSignature() {
+      session_ = com.google.protobuf.ByteString.EMPTY;
+      signature_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private SessionSignature(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+
+              session_ = input.readBytes();
+              break;
+            }
+            case 18: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              signature_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.arctro.ssn.protobuf.Protobuf.SessionSignature.class, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder.class);
+    }
+
+    public static final int SESSION_FIELD_NUMBER = 1;
+    private com.google.protobuf.ByteString session_;
+    /**
+     * <code>optional bytes session = 1;</code>
+     */
+    public com.google.protobuf.ByteString getSession() {
+      return session_;
+    }
+
+    public static final int SIGNATURE_FIELD_NUMBER = 2;
+    private volatile java.lang.Object signature_;
+    /**
+     * <code>optional string signature = 2;</code>
+     */
+    public java.lang.String getSignature() {
+      java.lang.Object ref = signature_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        signature_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string signature = 2;</code>
+     */
+    public com.google.protobuf.ByteString
+        getSignatureBytes() {
+      java.lang.Object ref = signature_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        signature_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!session_.isEmpty()) {
+        output.writeBytes(1, session_);
+      }
+      if (!getSignatureBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 2, signature_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!session_.isEmpty()) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBytesSize(1, session_);
+      }
+      if (!getSignatureBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, signature_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.SessionSignature)) {
+        return super.equals(obj);
+      }
+      com.arctro.ssn.protobuf.Protobuf.SessionSignature other = (com.arctro.ssn.protobuf.Protobuf.SessionSignature) obj;
+
+      boolean result = true;
+      result = result && getSession()
+          .equals(other.getSession());
+      result = result && getSignature()
+          .equals(other.getSignature());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + SESSION_FIELD_NUMBER;
+      hash = (53 * hash) + getSession().hashCode();
+      hash = (37 * hash) + SIGNATURE_FIELD_NUMBER;
+      hash = (53 * hash) + getSignature().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.SessionSignature prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SessionSignature}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SessionSignature)
+        com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.arctro.ssn.protobuf.Protobuf.SessionSignature.class, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder.class);
+      }
+
+      // Construct using com.arctro.ssn.protobuf.Protobuf.SessionSignature.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        session_ = com.google.protobuf.ByteString.EMPTY;
+
+        signature_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionSignature_descriptor;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.SessionSignature getDefaultInstanceForType() {
+        return com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance();
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.SessionSignature build() {
+        com.arctro.ssn.protobuf.Protobuf.SessionSignature result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.SessionSignature buildPartial() {
+        com.arctro.ssn.protobuf.Protobuf.SessionSignature result = new com.arctro.ssn.protobuf.Protobuf.SessionSignature(this);
+        result.session_ = session_;
+        result.signature_ = signature_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.arctro.ssn.protobuf.Protobuf.SessionSignature) {
+          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.SessionSignature)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.SessionSignature other) {
+        if (other == com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance()) return this;
+        if (other.getSession() != com.google.protobuf.ByteString.EMPTY) {
+          setSession(other.getSession());
+        }
+        if (!other.getSignature().isEmpty()) {
+          signature_ = other.signature_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.arctro.ssn.protobuf.Protobuf.SessionSignature parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.SessionSignature) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.google.protobuf.ByteString session_ = com.google.protobuf.ByteString.EMPTY;
+      /**
+       * <code>optional bytes session = 1;</code>
+       */
+      public com.google.protobuf.ByteString getSession() {
+        return session_;
+      }
+      /**
+       * <code>optional bytes session = 1;</code>
+       */
+      public Builder setSession(com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        session_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bytes session = 1;</code>
+       */
+      public Builder clearSession() {
+        
+        session_ = getDefaultInstance().getSession();
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object signature_ = "";
+      /**
+       * <code>optional string signature = 2;</code>
+       */
+      public java.lang.String getSignature() {
+        java.lang.Object ref = signature_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          signature_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string signature = 2;</code>
+       */
+      public com.google.protobuf.ByteString
+          getSignatureBytes() {
+        java.lang.Object ref = signature_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          signature_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string signature = 2;</code>
+       */
+      public Builder setSignature(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string signature = 2;</code>
+       */
+      public Builder clearSignature() {
+        
+        signature_ = getDefaultInstance().getSignature();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string signature = 2;</code>
+       */
+      public Builder setSignatureBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        signature_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SessionSignature)
+    }
+
+    // @@protoc_insertion_point(class_scope:SessionSignature)
+    private static final com.arctro.ssn.protobuf.Protobuf.SessionSignature DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.SessionSignature();
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.SessionSignature getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SessionSignature>
+        PARSER = new com.google.protobuf.AbstractParser<SessionSignature>() {
+      public SessionSignature parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SessionSignature(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SessionSignature> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SessionSignature> getParserForType() {
+      return PARSER;
+    }
+
+    public com.arctro.ssn.protobuf.Protobuf.SessionSignature getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
+  public interface SessionInformationOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:SessionInformation)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional .SessionSignature session = 1;</code>
+     */
+    boolean hasSession();
+    /**
+     * <code>optional .SessionSignature session = 1;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.SessionSignature getSession();
+    /**
+     * <code>optional .SessionSignature session = 1;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder getSessionOrBuilder();
+
+    /**
+     * <code>optional .ShortUser user = 2;</code>
+     */
+    boolean hasUser();
+    /**
+     * <code>optional .ShortUser user = 2;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.ShortUser getUser();
+    /**
+     * <code>optional .ShortUser user = 2;</code>
+     */
+    com.arctro.ssn.protobuf.Protobuf.ShortUserOrBuilder getUserOrBuilder();
+  }
+  /**
+   * Protobuf type {@code SessionInformation}
+   */
+  public  static final class SessionInformation extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:SessionInformation)
+      SessionInformationOrBuilder {
+    // Use SessionInformation.newBuilder() to construct.
+    private SessionInformation(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private SessionInformation() {
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private SessionInformation(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder subBuilder = null;
+              if (session_ != null) {
+                subBuilder = session_.toBuilder();
+              }
+              session_ = input.readMessage(com.arctro.ssn.protobuf.Protobuf.SessionSignature.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(session_);
+                session_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 18: {
+              com.arctro.ssn.protobuf.Protobuf.ShortUser.Builder subBuilder = null;
+              if (user_ != null) {
+                subBuilder = user_.toBuilder();
+              }
+              user_ = input.readMessage(com.arctro.ssn.protobuf.Protobuf.ShortUser.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(user_);
+                user_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionInformation_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionInformation_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.arctro.ssn.protobuf.Protobuf.SessionInformation.class, com.arctro.ssn.protobuf.Protobuf.SessionInformation.Builder.class);
+    }
+
+    public static final int SESSION_FIELD_NUMBER = 1;
+    private com.arctro.ssn.protobuf.Protobuf.SessionSignature session_;
+    /**
+     * <code>optional .SessionSignature session = 1;</code>
+     */
+    public boolean hasSession() {
+      return session_ != null;
+    }
+    /**
+     * <code>optional .SessionSignature session = 1;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.SessionSignature getSession() {
+      return session_ == null ? com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance() : session_;
+    }
+    /**
+     * <code>optional .SessionSignature session = 1;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder getSessionOrBuilder() {
+      return getSession();
+    }
+
+    public static final int USER_FIELD_NUMBER = 2;
+    private com.arctro.ssn.protobuf.Protobuf.ShortUser user_;
+    /**
+     * <code>optional .ShortUser user = 2;</code>
+     */
+    public boolean hasUser() {
+      return user_ != null;
+    }
+    /**
+     * <code>optional .ShortUser user = 2;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.ShortUser getUser() {
+      return user_ == null ? com.arctro.ssn.protobuf.Protobuf.ShortUser.getDefaultInstance() : user_;
+    }
+    /**
+     * <code>optional .ShortUser user = 2;</code>
+     */
+    public com.arctro.ssn.protobuf.Protobuf.ShortUserOrBuilder getUserOrBuilder() {
+      return getUser();
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (session_ != null) {
+        output.writeMessage(1, getSession());
+      }
+      if (user_ != null) {
+        output.writeMessage(2, getUser());
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (session_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(1, getSession());
+      }
+      if (user_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(2, getUser());
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.SessionInformation)) {
+        return super.equals(obj);
+      }
+      com.arctro.ssn.protobuf.Protobuf.SessionInformation other = (com.arctro.ssn.protobuf.Protobuf.SessionInformation) obj;
+
+      boolean result = true;
+      result = result && (hasSession() == other.hasSession());
+      if (hasSession()) {
+        result = result && getSession()
+            .equals(other.getSession());
+      }
+      result = result && (hasUser() == other.hasUser());
+      if (hasUser()) {
+        result = result && getUser()
+            .equals(other.getUser());
+      }
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      if (hasSession()) {
+        hash = (37 * hash) + SESSION_FIELD_NUMBER;
+        hash = (53 * hash) + getSession().hashCode();
+      }
+      if (hasUser()) {
+        hash = (37 * hash) + USER_FIELD_NUMBER;
+        hash = (53 * hash) + getUser().hashCode();
+      }
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.SessionInformation prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code SessionInformation}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:SessionInformation)
+        com.arctro.ssn.protobuf.Protobuf.SessionInformationOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionInformation_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionInformation_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.arctro.ssn.protobuf.Protobuf.SessionInformation.class, com.arctro.ssn.protobuf.Protobuf.SessionInformation.Builder.class);
+      }
+
+      // Construct using com.arctro.ssn.protobuf.Protobuf.SessionInformation.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        if (sessionBuilder_ == null) {
+          session_ = null;
+        } else {
+          session_ = null;
+          sessionBuilder_ = null;
+        }
+        if (userBuilder_ == null) {
+          user_ = null;
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_SessionInformation_descriptor;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.SessionInformation getDefaultInstanceForType() {
+        return com.arctro.ssn.protobuf.Protobuf.SessionInformation.getDefaultInstance();
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.SessionInformation build() {
+        com.arctro.ssn.protobuf.Protobuf.SessionInformation result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.SessionInformation buildPartial() {
+        com.arctro.ssn.protobuf.Protobuf.SessionInformation result = new com.arctro.ssn.protobuf.Protobuf.SessionInformation(this);
+        if (sessionBuilder_ == null) {
+          result.session_ = session_;
+        } else {
+          result.session_ = sessionBuilder_.build();
+        }
+        if (userBuilder_ == null) {
+          result.user_ = user_;
+        } else {
+          result.user_ = userBuilder_.build();
+        }
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.arctro.ssn.protobuf.Protobuf.SessionInformation) {
+          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.SessionInformation)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.SessionInformation other) {
+        if (other == com.arctro.ssn.protobuf.Protobuf.SessionInformation.getDefaultInstance()) return this;
+        if (other.hasSession()) {
+          mergeSession(other.getSession());
+        }
+        if (other.hasUser()) {
+          mergeUser(other.getUser());
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.arctro.ssn.protobuf.Protobuf.SessionInformation parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.SessionInformation) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private com.arctro.ssn.protobuf.Protobuf.SessionSignature session_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.SessionSignature, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder, com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder> sessionBuilder_;
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public boolean hasSession() {
+        return sessionBuilder_ != null || session_ != null;
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.SessionSignature getSession() {
+        if (sessionBuilder_ == null) {
+          return session_ == null ? com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance() : session_;
+        } else {
+          return sessionBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public Builder setSession(com.arctro.ssn.protobuf.Protobuf.SessionSignature value) {
+        if (sessionBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          session_ = value;
+          onChanged();
+        } else {
+          sessionBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public Builder setSession(
+          com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder builderForValue) {
+        if (sessionBuilder_ == null) {
+          session_ = builderForValue.build();
+          onChanged();
+        } else {
+          sessionBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public Builder mergeSession(com.arctro.ssn.protobuf.Protobuf.SessionSignature value) {
+        if (sessionBuilder_ == null) {
+          if (session_ != null) {
+            session_ =
+              com.arctro.ssn.protobuf.Protobuf.SessionSignature.newBuilder(session_).mergeFrom(value).buildPartial();
+          } else {
+            session_ = value;
+          }
+          onChanged();
+        } else {
+          sessionBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public Builder clearSession() {
+        if (sessionBuilder_ == null) {
+          session_ = null;
+          onChanged();
+        } else {
+          session_ = null;
+          sessionBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder getSessionBuilder() {
+        
+        onChanged();
+        return getSessionFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder getSessionOrBuilder() {
+        if (sessionBuilder_ != null) {
+          return sessionBuilder_.getMessageOrBuilder();
+        } else {
+          return session_ == null ?
+              com.arctro.ssn.protobuf.Protobuf.SessionSignature.getDefaultInstance() : session_;
+        }
+      }
+      /**
+       * <code>optional .SessionSignature session = 1;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.SessionSignature, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder, com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder> 
+          getSessionFieldBuilder() {
+        if (sessionBuilder_ == null) {
+          sessionBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.arctro.ssn.protobuf.Protobuf.SessionSignature, com.arctro.ssn.protobuf.Protobuf.SessionSignature.Builder, com.arctro.ssn.protobuf.Protobuf.SessionSignatureOrBuilder>(
+                  getSession(),
+                  getParentForChildren(),
+                  isClean());
+          session_ = null;
+        }
+        return sessionBuilder_;
+      }
+
+      private com.arctro.ssn.protobuf.Protobuf.ShortUser user_ = null;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.ShortUser, com.arctro.ssn.protobuf.Protobuf.ShortUser.Builder, com.arctro.ssn.protobuf.Protobuf.ShortUserOrBuilder> userBuilder_;
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public boolean hasUser() {
+        return userBuilder_ != null || user_ != null;
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.ShortUser getUser() {
+        if (userBuilder_ == null) {
+          return user_ == null ? com.arctro.ssn.protobuf.Protobuf.ShortUser.getDefaultInstance() : user_;
+        } else {
+          return userBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public Builder setUser(com.arctro.ssn.protobuf.Protobuf.ShortUser value) {
+        if (userBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          user_ = value;
+          onChanged();
+        } else {
+          userBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public Builder setUser(
+          com.arctro.ssn.protobuf.Protobuf.ShortUser.Builder builderForValue) {
+        if (userBuilder_ == null) {
+          user_ = builderForValue.build();
+          onChanged();
+        } else {
+          userBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public Builder mergeUser(com.arctro.ssn.protobuf.Protobuf.ShortUser value) {
+        if (userBuilder_ == null) {
+          if (user_ != null) {
+            user_ =
+              com.arctro.ssn.protobuf.Protobuf.ShortUser.newBuilder(user_).mergeFrom(value).buildPartial();
+          } else {
+            user_ = value;
+          }
+          onChanged();
+        } else {
+          userBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public Builder clearUser() {
+        if (userBuilder_ == null) {
+          user_ = null;
+          onChanged();
+        } else {
+          user_ = null;
+          userBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.ShortUser.Builder getUserBuilder() {
+        
+        onChanged();
+        return getUserFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      public com.arctro.ssn.protobuf.Protobuf.ShortUserOrBuilder getUserOrBuilder() {
+        if (userBuilder_ != null) {
+          return userBuilder_.getMessageOrBuilder();
+        } else {
+          return user_ == null ?
+              com.arctro.ssn.protobuf.Protobuf.ShortUser.getDefaultInstance() : user_;
+        }
+      }
+      /**
+       * <code>optional .ShortUser user = 2;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.arctro.ssn.protobuf.Protobuf.ShortUser, com.arctro.ssn.protobuf.Protobuf.ShortUser.Builder, com.arctro.ssn.protobuf.Protobuf.ShortUserOrBuilder> 
+          getUserFieldBuilder() {
+        if (userBuilder_ == null) {
+          userBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.arctro.ssn.protobuf.Protobuf.ShortUser, com.arctro.ssn.protobuf.Protobuf.ShortUser.Builder, com.arctro.ssn.protobuf.Protobuf.ShortUserOrBuilder>(
+                  getUser(),
+                  getParentForChildren(),
+                  isClean());
+          user_ = null;
+        }
+        return userBuilder_;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:SessionInformation)
+    }
+
+    // @@protoc_insertion_point(class_scope:SessionInformation)
+    private static final com.arctro.ssn.protobuf.Protobuf.SessionInformation DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.SessionInformation();
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.SessionInformation getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<SessionInformation>
+        PARSER = new com.google.protobuf.AbstractParser<SessionInformation>() {
+      public SessionInformation parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new SessionInformation(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<SessionInformation> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<SessionInformation> getParserForType() {
+      return PARSER;
+    }
+
+    public com.arctro.ssn.protobuf.Protobuf.SessionInformation getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ShortUser_descriptor;
   private static final 
@@ -6041,6 +6902,16 @@ public final class Protobuf {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PostCollection_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_Tag_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_Tag_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_TagCollection_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_TagCollection_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_Session_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
@@ -6051,15 +6922,10 @@ public final class Protobuf {
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_SessionSignature_fieldAccessorTable;
   private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_Tag_descriptor;
+    internal_static_SessionInformation_descriptor;
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_Tag_fieldAccessorTable;
-  private static final com.google.protobuf.Descriptors.Descriptor
-    internal_static_TagCollection_descriptor;
-  private static final 
-    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
-      internal_static_TagCollection_fieldAccessorTable;
+      internal_static_SessionInformation_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -6076,12 +6942,15 @@ public final class Protobuf {
       "(\005\022\030\n\004user\030\002 \001(\0132\n.ShortUser\022\017\n\007content\030" +
       "\003 \001(\t\022\021\n\003tag\030\005 \003(\0132\004.Tag\022\016\n\006posted\030\004 \001(\003" +
       "\"%\n\016PostCollection\022\023\n\004list\030\001 \003(\0132\005.Post\"" +
-      "(\n\007Session\022\r\n\005token\030\001 \001(\t\022\016\n\006expire\030\002 \001(" +
-      "\003\"6\n\020SessionSignature\022\017\n\007session\030\001 \001(\014\022\021" +
-      "\n\tsignature\030\002 \001(\t\"4\n\003Tag\022\n\n\002id\030\001 \001(\005\022\013\n\003",
-      "tag\030\002 \001(\t\022\024\n\014recent_count\030\003 \001(\005\"#\n\rTagCo" +
-      "llection\022\022\n\004list\030\001 \003(\0132\004.TagB\031\n\027com.arct" +
-      "ro.ssn.protobufb\006proto3"
+      "4\n\003Tag\022\n\n\002id\030\001 \001(\005\022\013\n\003tag\030\002 \001(\t\022\024\n\014recen" +
+      "t_count\030\003 \001(\005\"#\n\rTagCollection\022\022\n\004list\030\001" +
+      " \003(\0132\004.Tag\"(\n\007Session\022\r\n\005token\030\001 \001(\t\022\016\n\006",
+      "expire\030\002 \001(\003\"6\n\020SessionSignature\022\017\n\007sess" +
+      "ion\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\t\"R\n\022SessionI" +
+      "nformation\022\"\n\007session\030\001 \001(\0132\021.SessionSig" +
+      "nature\022\030\n\004user\030\002 \001(\0132\n.ShortUser*(\n\010User" +
+      "Type\022\010\n\004USER\020\000\022\007\n\003MOD\020\001\022\t\n\005ADMIN\020\002B\031\n\027co" +
+      "m.arctro.ssn.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6119,30 +6988,36 @@ public final class Protobuf {
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PostCollection_descriptor,
         new java.lang.String[] { "List", });
-    internal_static_Session_descriptor =
-      getDescriptor().getMessageTypes().get(4);
-    internal_static_Session_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_Session_descriptor,
-        new java.lang.String[] { "Token", "Expire", });
-    internal_static_SessionSignature_descriptor =
-      getDescriptor().getMessageTypes().get(5);
-    internal_static_SessionSignature_fieldAccessorTable = new
-      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
-        internal_static_SessionSignature_descriptor,
-        new java.lang.String[] { "Session", "Signature", });
     internal_static_Tag_descriptor =
-      getDescriptor().getMessageTypes().get(6);
+      getDescriptor().getMessageTypes().get(4);
     internal_static_Tag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Tag_descriptor,
         new java.lang.String[] { "Id", "Tag", "RecentCount", });
     internal_static_TagCollection_descriptor =
-      getDescriptor().getMessageTypes().get(7);
+      getDescriptor().getMessageTypes().get(5);
     internal_static_TagCollection_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_TagCollection_descriptor,
         new java.lang.String[] { "List", });
+    internal_static_Session_descriptor =
+      getDescriptor().getMessageTypes().get(6);
+    internal_static_Session_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_Session_descriptor,
+        new java.lang.String[] { "Token", "Expire", });
+    internal_static_SessionSignature_descriptor =
+      getDescriptor().getMessageTypes().get(7);
+    internal_static_SessionSignature_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SessionSignature_descriptor,
+        new java.lang.String[] { "Session", "Signature", });
+    internal_static_SessionInformation_descriptor =
+      getDescriptor().getMessageTypes().get(8);
+    internal_static_SessionInformation_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_SessionInformation_descriptor,
+        new java.lang.String[] { "Session", "User", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)

@@ -1,6 +1,12 @@
 syntax = "proto3";
 option java_package = "com.arctro.ssn.protobuf";
 
+enum UserType{
+	USER = 0;
+	MOD = 1;
+	ADMIN = 2;
+}
+
 message ShortUser{
 	int32 id = 1;
 	string cid = 2;
@@ -24,6 +30,16 @@ message PostCollection{
 	repeated Post list = 1;
 }
 
+message Tag{
+	int32 id = 1;
+	string tag = 2;
+	int32 recent_count = 3;
+}
+
+message TagCollection{
+	repeated Tag list = 1;
+}
+
 message Session{
 	string token = 1;
 	int64 expire = 2;
@@ -34,12 +50,7 @@ message SessionSignature{
 	string signature = 2;
 }
 
-message Tag{
-	int32 id = 1;
-	string tag = 2;
-	int32 recent_count = 3;
-}
-
-message TagCollection{
-	repeated Tag list = 1;
+message SessionInformation{
+	SessionSignature session = 1;
+	ShortUser user = 2;
 }
