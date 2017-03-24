@@ -1,0 +1,24 @@
+syntax = "proto3";
+option java_package = "com.arctro.ssn.protobuf";
+
+message ShortUser{
+	int32 id = 1;
+	string cid = 2;
+	string first_name = 3;
+	string last_name = 4;
+}
+
+message ShortUserCollection{
+	repeated ShortUser list = 1;
+}
+
+message Post{
+	int32 id = 1;
+	ShortUser user = 2;
+	string content = 3;
+	int64 posted = 4;
+}
+
+message PostCollection{
+	repeated Post list = 1;
+}
