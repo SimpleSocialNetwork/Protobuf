@@ -16,6 +16,7 @@ message Post{
 	int32 id = 1;
 	ShortUser user = 2;
 	string content = 3;
+	repeated string tags = 5;
 	int64 posted = 4;
 }
 

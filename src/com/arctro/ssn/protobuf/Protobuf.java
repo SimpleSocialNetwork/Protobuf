@@ -1622,6 +1622,25 @@ public final class Protobuf {
         getContentBytes();
 
     /**
+     * <code>repeated string tags = 5;</code>
+     */
+    java.util.List<java.lang.String>
+        getTagsList();
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    int getTagsCount();
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    java.lang.String getTags(int index);
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getTagsBytes(int index);
+
+    /**
      * <code>optional int64 posted = 4;</code>
      */
     long getPosted();
@@ -1640,6 +1659,7 @@ public final class Protobuf {
     private Post() {
       id_ = 0;
       content_ = "";
+      tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
       posted_ = 0L;
     }
 
@@ -1697,6 +1717,15 @@ public final class Protobuf {
               posted_ = input.readInt64();
               break;
             }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+              if (!((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+                tags_ = new com.google.protobuf.LazyStringArrayList();
+                mutable_bitField0_ |= 0x00000008;
+              }
+              tags_.add(s);
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -1705,6 +1734,9 @@ public final class Protobuf {
         throw new com.google.protobuf.InvalidProtocolBufferException(
             e).setUnfinishedMessage(this);
       } finally {
+        if (((mutable_bitField0_ & 0x00000008) == 0x00000008)) {
+          tags_ = tags_.getUnmodifiableView();
+        }
         makeExtensionsImmutable();
       }
     }
@@ -1720,6 +1752,7 @@ public final class Protobuf {
               com.arctro.ssn.protobuf.Protobuf.Post.class, com.arctro.ssn.protobuf.Protobuf.Post.Builder.class);
     }
 
+    private int bitField0_;
     public static final int ID_FIELD_NUMBER = 1;
     private int id_;
     /**
@@ -1784,6 +1817,35 @@ public final class Protobuf {
       }
     }
 
+    public static final int TAGS_FIELD_NUMBER = 5;
+    private com.google.protobuf.LazyStringList tags_;
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    public com.google.protobuf.ProtocolStringList
+        getTagsList() {
+      return tags_;
+    }
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    public int getTagsCount() {
+      return tags_.size();
+    }
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    public java.lang.String getTags(int index) {
+      return tags_.get(index);
+    }
+    /**
+     * <code>repeated string tags = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTagsBytes(int index) {
+      return tags_.getByteString(index);
+    }
+
     public static final int POSTED_FIELD_NUMBER = 4;
     private long posted_;
     /**
@@ -1817,6 +1879,9 @@ public final class Protobuf {
       if (posted_ != 0L) {
         output.writeInt64(4, posted_);
       }
+      for (int i = 0; i < tags_.size(); i++) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, tags_.getRaw(i));
+      }
     }
 
     public int getSerializedSize() {
@@ -1838,6 +1903,14 @@ public final class Protobuf {
       if (posted_ != 0L) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt64Size(4, posted_);
+      }
+      {
+        int dataSize = 0;
+        for (int i = 0; i < tags_.size(); i++) {
+          dataSize += computeStringSizeNoTag(tags_.getRaw(i));
+        }
+        size += dataSize;
+        size += 1 * getTagsList().size();
       }
       memoizedSize = size;
       return size;
@@ -1864,6 +1937,8 @@ public final class Protobuf {
       }
       result = result && getContent()
           .equals(other.getContent());
+      result = result && getTagsList()
+          .equals(other.getTagsList());
       result = result && (getPosted()
           == other.getPosted());
       return result;
@@ -1884,6 +1959,10 @@ public final class Protobuf {
       }
       hash = (37 * hash) + CONTENT_FIELD_NUMBER;
       hash = (53 * hash) + getContent().hashCode();
+      if (getTagsCount() > 0) {
+        hash = (37 * hash) + TAGS_FIELD_NUMBER;
+        hash = (53 * hash) + getTagsList().hashCode();
+      }
       hash = (37 * hash) + POSTED_FIELD_NUMBER;
       hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
           getPosted());
@@ -2015,6 +2094,8 @@ public final class Protobuf {
         }
         content_ = "";
 
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
         posted_ = 0L;
 
         return this;
@@ -2039,6 +2120,8 @@ public final class Protobuf {
 
       public com.arctro.ssn.protobuf.Protobuf.Post buildPartial() {
         com.arctro.ssn.protobuf.Protobuf.Post result = new com.arctro.ssn.protobuf.Protobuf.Post(this);
+        int from_bitField0_ = bitField0_;
+        int to_bitField0_ = 0;
         result.id_ = id_;
         if (userBuilder_ == null) {
           result.user_ = user_;
@@ -2046,7 +2129,13 @@ public final class Protobuf {
           result.user_ = userBuilder_.build();
         }
         result.content_ = content_;
+        if (((bitField0_ & 0x00000008) == 0x00000008)) {
+          tags_ = tags_.getUnmodifiableView();
+          bitField0_ = (bitField0_ & ~0x00000008);
+        }
+        result.tags_ = tags_;
         result.posted_ = posted_;
+        result.bitField0_ = to_bitField0_;
         onBuilt();
         return result;
       }
@@ -2098,6 +2187,16 @@ public final class Protobuf {
           content_ = other.content_;
           onChanged();
         }
+        if (!other.tags_.isEmpty()) {
+          if (tags_.isEmpty()) {
+            tags_ = other.tags_;
+            bitField0_ = (bitField0_ & ~0x00000008);
+          } else {
+            ensureTagsIsMutable();
+            tags_.addAll(other.tags_);
+          }
+          onChanged();
+        }
         if (other.getPosted() != 0L) {
           setPosted(other.getPosted());
         }
@@ -2126,6 +2225,7 @@ public final class Protobuf {
         }
         return this;
       }
+      private int bitField0_;
 
       private int id_ ;
       /**
@@ -2335,6 +2435,100 @@ public final class Protobuf {
   checkByteStringIsUtf8(value);
         
         content_ = value;
+        onChanged();
+        return this;
+      }
+
+      private com.google.protobuf.LazyStringList tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+      private void ensureTagsIsMutable() {
+        if (!((bitField0_ & 0x00000008) == 0x00000008)) {
+          tags_ = new com.google.protobuf.LazyStringArrayList(tags_);
+          bitField0_ |= 0x00000008;
+         }
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public com.google.protobuf.ProtocolStringList
+          getTagsList() {
+        return tags_.getUnmodifiableView();
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public int getTagsCount() {
+        return tags_.size();
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public java.lang.String getTags(int index) {
+        return tags_.get(index);
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTagsBytes(int index) {
+        return tags_.getByteString(index);
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public Builder setTags(
+          int index, java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.set(index, value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public Builder addTags(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  ensureTagsIsMutable();
+        tags_.add(value);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public Builder addAllTags(
+          java.lang.Iterable<java.lang.String> values) {
+        ensureTagsIsMutable();
+        com.google.protobuf.AbstractMessageLite.Builder.addAll(
+            values, tags_);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public Builder clearTags() {
+        tags_ = com.google.protobuf.LazyStringArrayList.EMPTY;
+        bitField0_ = (bitField0_ & ~0x00000008);
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>repeated string tags = 5;</code>
+       */
+      public Builder addTagsBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        ensureTagsIsMutable();
+        tags_.add(value);
         onChanged();
         return this;
       }
@@ -4326,13 +4520,14 @@ public final class Protobuf {
       "\n\016Protobuf.proto\"K\n\tShortUser\022\n\n\002id\030\001 \001(" +
       "\005\022\013\n\003cid\030\002 \001(\t\022\022\n\nfirst_name\030\003 \001(\t\022\021\n\tla" +
       "st_name\030\004 \001(\t\"/\n\023ShortUserCollection\022\030\n\004" +
-      "list\030\001 \003(\0132\n.ShortUser\"M\n\004Post\022\n\n\002id\030\001 \001" +
+      "list\030\001 \003(\0132\n.ShortUser\"[\n\004Post\022\n\n\002id\030\001 \001" +
       "(\005\022\030\n\004user\030\002 \001(\0132\n.ShortUser\022\017\n\007content\030" +
-      "\003 \001(\t\022\016\n\006posted\030\004 \001(\003\"%\n\016PostCollection\022" +
-      "\023\n\004list\030\001 \003(\0132\005.Post\"(\n\007Session\022\r\n\005token" +
-      "\030\001 \001(\t\022\016\n\006expire\030\002 \001(\003\"6\n\020SessionSignatu" +
-      "re\022\017\n\007session\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\tB\031" +
-      "\n\027com.arctro.ssn.protobufb\006proto3"
+      "\003 \001(\t\022\014\n\004tags\030\005 \003(\t\022\016\n\006posted\030\004 \001(\003\"%\n\016P" +
+      "ostCollection\022\023\n\004list\030\001 \003(\0132\005.Post\"(\n\007Se" +
+      "ssion\022\r\n\005token\030\001 \001(\t\022\016\n\006expire\030\002 \001(\003\"6\n\020" +
+      "SessionSignature\022\017\n\007session\030\001 \001(\014\022\021\n\tsig" +
+      "nature\030\002 \001(\tB\031\n\027com.arctro.ssn.protobufb",
+      "\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -4363,7 +4558,7 @@ public final class Protobuf {
     internal_static_Post_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Post_descriptor,
-        new java.lang.String[] { "Id", "User", "Content", "Posted", });
+        new java.lang.String[] { "Id", "User", "Content", "Tags", "Posted", });
     internal_static_PostCollection_descriptor =
       getDescriptor().getMessageTypes().get(3);
     internal_static_PostCollection_fieldAccessorTable = new
