@@ -5,8 +5,8 @@ import com.arctro.ssn.protobuf.models.IServableProtobufWrapper;
 
 public class ShortUser extends IServableProtobufWrapper<Protobuf.ShortUser>{
 
-	public ShortUser(Protobuf.ShortUser base, Integer id) {
-		super(base, id);
+	public ShortUser(Protobuf.ShortUser base) {
+		super(base, base.getId());
 	}
 
 }

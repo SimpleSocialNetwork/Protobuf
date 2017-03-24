@@ -5,8 +5,8 @@ import com.arctro.ssn.protobuf.models.IServableProtobufWrapper;
 
 public class Post extends IServableProtobufWrapper<Protobuf.Post>{
 
-	public Post(com.arctro.ssn.protobuf.Protobuf.Post base, Integer id) {
-		super(base, id);
+	public Post(com.arctro.ssn.protobuf.Protobuf.Post base) {
+		super(base, base.getId());
 	}
 
 }
