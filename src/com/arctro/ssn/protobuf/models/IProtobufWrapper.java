@@ -1,8 +1,8 @@
 package com.arctro.ssn.protobuf.models;
 
-import com.google.protobuf.GeneratedMessage;
+import com.google.protobuf.GeneratedMessageV3;
 
-public class IProtobufWrapper<T extends GeneratedMessage> implements ProtobufWrapper<T> {
+public class IProtobufWrapper<T extends GeneratedMessageV3> implements ProtobufWrapper<T> {
 
 	T base;
 	
