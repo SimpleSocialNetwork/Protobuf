@@ -37,6 +37,7 @@ message SessionSignature{
 message Tag{
 	int32 id = 1;
 	string tag = 2;
+	int32 recent_count = 3;
 }
 
 message TagCollection{

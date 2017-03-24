@@ -4674,6 +4674,11 @@ public final class Protobuf {
      */
     com.google.protobuf.ByteString
         getTagBytes();
+
+    /**
+     * <code>optional int32 recent_count = 3;</code>
+     */
+    int getRecentCount();
   }
   /**
    * Protobuf type {@code Tag}
@@ -4689,6 +4694,7 @@ public final class Protobuf {
     private Tag() {
       id_ = 0;
       tag_ = "";
+      recentCount_ = 0;
     }
 
     @java.lang.Override
@@ -4725,6 +4731,11 @@ public final class Protobuf {
               java.lang.String s = input.readStringRequireUtf8();
 
               tag_ = s;
+              break;
+            }
+            case 24: {
+
+              recentCount_ = input.readInt32();
               break;
             }
           }
@@ -4793,6 +4804,15 @@ public final class Protobuf {
       }
     }
 
+    public static final int RECENT_COUNT_FIELD_NUMBER = 3;
+    private int recentCount_;
+    /**
+     * <code>optional int32 recent_count = 3;</code>
+     */
+    public int getRecentCount() {
+      return recentCount_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -4811,6 +4831,9 @@ public final class Protobuf {
       if (!getTagBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, tag_);
       }
+      if (recentCount_ != 0) {
+        output.writeInt32(3, recentCount_);
+      }
     }
 
     public int getSerializedSize() {
@@ -4824,6 +4847,10 @@ public final class Protobuf {
       }
       if (!getTagBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, tag_);
+      }
+      if (recentCount_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, recentCount_);
       }
       memoizedSize = size;
       return size;
@@ -4845,6 +4872,8 @@ public final class Protobuf {
           == other.getId());
       result = result && getTag()
           .equals(other.getTag());
+      result = result && (getRecentCount()
+          == other.getRecentCount());
       return result;
     }
 
@@ -4859,6 +4888,8 @@ public final class Protobuf {
       hash = (53 * hash) + getId();
       hash = (37 * hash) + TAG_FIELD_NUMBER;
       hash = (53 * hash) + getTag().hashCode();
+      hash = (37 * hash) + RECENT_COUNT_FIELD_NUMBER;
+      hash = (53 * hash) + getRecentCount();
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -4981,6 +5012,8 @@ public final class Protobuf {
 
         tag_ = "";
 
+        recentCount_ = 0;
+
         return this;
       }
 
@@ -5005,6 +5038,7 @@ public final class Protobuf {
         com.arctro.ssn.protobuf.Protobuf.Tag result = new com.arctro.ssn.protobuf.Protobuf.Tag(this);
         result.id_ = id_;
         result.tag_ = tag_;
+        result.recentCount_ = recentCount_;
         onBuilt();
         return result;
       }
@@ -5052,6 +5086,9 @@ public final class Protobuf {
         if (!other.getTag().isEmpty()) {
           tag_ = other.tag_;
           onChanged();
+        }
+        if (other.getRecentCount() != 0) {
+          setRecentCount(other.getRecentCount());
         }
         onChanged();
         return this;
@@ -5170,6 +5207,32 @@ public final class Protobuf {
   checkByteStringIsUtf8(value);
         
         tag_ = value;
+        onChanged();
+        return this;
+      }
+
+      private int recentCount_ ;
+      /**
+       * <code>optional int32 recent_count = 3;</code>
+       */
+      public int getRecentCount() {
+        return recentCount_;
+      }
+      /**
+       * <code>optional int32 recent_count = 3;</code>
+       */
+      public Builder setRecentCount(int value) {
+        
+        recentCount_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 recent_count = 3;</code>
+       */
+      public Builder clearRecentCount() {
+        
+        recentCount_ = 0;
         onChanged();
         return this;
       }
@@ -6015,10 +6078,10 @@ public final class Protobuf {
       "\"%\n\016PostCollection\022\023\n\004list\030\001 \003(\0132\005.Post\"" +
       "(\n\007Session\022\r\n\005token\030\001 \001(\t\022\016\n\006expire\030\002 \001(" +
       "\003\"6\n\020SessionSignature\022\017\n\007session\030\001 \001(\014\022\021" +
-      "\n\tsignature\030\002 \001(\t\"\036\n\003Tag\022\n\n\002id\030\001 \001(\005\022\013\n\003",
-      "tag\030\002 \001(\t\"#\n\rTagCollection\022\022\n\004list\030\001 \003(\013" +
-      "2\004.TagB\031\n\027com.arctro.ssn.protobufb\006proto" +
-      "3"
+      "\n\tsignature\030\002 \001(\t\"4\n\003Tag\022\n\n\002id\030\001 \001(\005\022\013\n\003",
+      "tag\030\002 \001(\t\022\024\n\014recent_count\030\003 \001(\005\"#\n\rTagCo" +
+      "llection\022\022\n\004list\030\001 \003(\0132\004.TagB\031\n\027com.arct" +
+      "ro.ssn.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -6073,7 +6136,7 @@ public final class Protobuf {
     internal_static_Tag_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Tag_descriptor,
-        new java.lang.String[] { "Id", "Tag", });
+        new java.lang.String[] { "Id", "Tag", "RecentCount", });
     internal_static_TagCollection_descriptor =
       getDescriptor().getMessageTypes().get(7);
     internal_static_TagCollection_fieldAccessorTable = new
