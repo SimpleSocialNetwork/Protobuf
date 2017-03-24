@@ -22,3 +22,13 @@ message Post{
 message PostCollection{
 	repeated Post list = 1;
 }
+
+message Session{
+	string token = 1;
+	int64 expire = 2;
+}
+
+message SessionSignature{
+	bytes session = 1;
+	string signature = 2;
+}
