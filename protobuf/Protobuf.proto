@@ -62,4 +62,5 @@ message Error{
 
 message PasswordStrength{
 	int32 strength = 1;
+	bool strong_enough = 2;
 }

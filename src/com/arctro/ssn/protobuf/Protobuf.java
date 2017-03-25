@@ -7529,6 +7529,11 @@ public final class Protobuf {
      * <code>optional int32 strength = 1;</code>
      */
     int getStrength();
+
+    /**
+     * <code>optional bool strong_enough = 2;</code>
+     */
+    boolean getStrongEnough();
   }
   /**
    * Protobuf type {@code PasswordStrength}
@@ -7543,6 +7548,7 @@ public final class Protobuf {
     }
     private PasswordStrength() {
       strength_ = 0;
+      strongEnough_ = false;
     }
 
     @java.lang.Override
@@ -7573,6 +7579,11 @@ public final class Protobuf {
             case 8: {
 
               strength_ = input.readInt32();
+              break;
+            }
+            case 16: {
+
+              strongEnough_ = input.readBool();
               break;
             }
           }
@@ -7607,6 +7618,15 @@ public final class Protobuf {
       return strength_;
     }
 
+    public static final int STRONG_ENOUGH_FIELD_NUMBER = 2;
+    private boolean strongEnough_;
+    /**
+     * <code>optional bool strong_enough = 2;</code>
+     */
+    public boolean getStrongEnough() {
+      return strongEnough_;
+    }
+
     private byte memoizedIsInitialized = -1;
     public final boolean isInitialized() {
       byte isInitialized = memoizedIsInitialized;
@@ -7622,6 +7642,9 @@ public final class Protobuf {
       if (strength_ != 0) {
         output.writeInt32(1, strength_);
       }
+      if (strongEnough_ != false) {
+        output.writeBool(2, strongEnough_);
+      }
     }
 
     public int getSerializedSize() {
@@ -7632,6 +7655,10 @@ public final class Protobuf {
       if (strength_ != 0) {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(1, strength_);
+      }
+      if (strongEnough_ != false) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeBoolSize(2, strongEnough_);
       }
       memoizedSize = size;
       return size;
@@ -7651,6 +7678,8 @@ public final class Protobuf {
       boolean result = true;
       result = result && (getStrength()
           == other.getStrength());
+      result = result && (getStrongEnough()
+          == other.getStrongEnough());
       return result;
     }
 
@@ -7663,6 +7692,9 @@ public final class Protobuf {
       hash = (19 * hash) + getDescriptorForType().hashCode();
       hash = (37 * hash) + STRENGTH_FIELD_NUMBER;
       hash = (53 * hash) + getStrength();
+      hash = (37 * hash) + STRONG_ENOUGH_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashBoolean(
+          getStrongEnough());
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
       return hash;
@@ -7783,6 +7815,8 @@ public final class Protobuf {
         super.clear();
         strength_ = 0;
 
+        strongEnough_ = false;
+
         return this;
       }
 
@@ -7806,6 +7840,7 @@ public final class Protobuf {
       public com.arctro.ssn.protobuf.Protobuf.PasswordStrength buildPartial() {
         com.arctro.ssn.protobuf.Protobuf.PasswordStrength result = new com.arctro.ssn.protobuf.Protobuf.PasswordStrength(this);
         result.strength_ = strength_;
+        result.strongEnough_ = strongEnough_;
         onBuilt();
         return result;
       }
@@ -7849,6 +7884,9 @@ public final class Protobuf {
         if (other == com.arctro.ssn.protobuf.Protobuf.PasswordStrength.getDefaultInstance()) return this;
         if (other.getStrength() != 0) {
           setStrength(other.getStrength());
+        }
+        if (other.getStrongEnough() != false) {
+          setStrongEnough(other.getStrongEnough());
         }
         onChanged();
         return this;
@@ -7898,6 +7936,32 @@ public final class Protobuf {
       public Builder clearStrength() {
         
         strength_ = 0;
+        onChanged();
+        return this;
+      }
+
+      private boolean strongEnough_ ;
+      /**
+       * <code>optional bool strong_enough = 2;</code>
+       */
+      public boolean getStrongEnough() {
+        return strongEnough_;
+      }
+      /**
+       * <code>optional bool strong_enough = 2;</code>
+       */
+      public Builder setStrongEnough(boolean value) {
+        
+        strongEnough_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional bool strong_enough = 2;</code>
+       */
+      public Builder clearStrongEnough() {
+        
+        strongEnough_ = false;
         onChanged();
         return this;
       }
@@ -8028,10 +8092,11 @@ public final class Protobuf {
       "ion\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\t\"R\n\022SessionI" +
       "nformation\022\"\n\007session\030\001 \001(\0132\021.SessionSig" +
       "nature\022\030\n\004user\030\002 \001(\0132\n.ShortUser\"*\n\005Erro" +
-      "r\022\014\n\004code\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\"$\n\020" +
-      "PasswordStrength\022\020\n\010strength\030\001 \001(\005*(\n\010Us" +
-      "erType\022\010\n\004USER\020\000\022\007\n\003MOD\020\001\022\t\n\005ADMIN\020\002B\031\n\027" +
-      "com.arctro.ssn.protobufb\006proto3"
+      "r\022\014\n\004code\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\";\n\020" +
+      "PasswordStrength\022\020\n\010strength\030\001 \001(\005\022\025\n\rst" +
+      "rong_enough\030\002 \001(\010*(\n\010UserType\022\010\n\004USER\020\000\022" +
+      "\007\n\003MOD\020\001\022\t\n\005ADMIN\020\002B\031\n\027com.arctro.ssn.pr" +
+      "otobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8110,7 +8175,7 @@ public final class Protobuf {
     internal_static_PasswordStrength_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PasswordStrength_descriptor,
-        new java.lang.String[] { "Strength", });
+        new java.lang.String[] { "Strength", "StrongEnough", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
