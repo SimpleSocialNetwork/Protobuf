@@ -14,7 +14,10 @@ public class IProtobufWrapper<T extends GeneratedMessageV3> implements ProtobufW
 	public T getBase() {
 		return base;
 	}
-	
-	
+
+	@Override
+	public String toString() {
+		return "IProtobufWrapper [base=" + base.toString() + "]";
+	}
 
 }

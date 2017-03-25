@@ -13,4 +13,10 @@ public class IServableProtobufWrapper<T extends GeneratedMessageV3> extends IPro
 	public Integer getServerId() {
 		return id;
 	}
+
+	@Override
+	public String toString() {
+		return "IServableProtobufWrapper [id=" + id + ", base=" + base.toString() + "]";
+	}
+	
 }

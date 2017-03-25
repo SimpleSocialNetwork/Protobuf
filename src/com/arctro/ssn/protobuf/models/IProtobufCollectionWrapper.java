@@ -7,5 +7,11 @@ public class IProtobufCollectionWrapper<T extends GeneratedMessageV3> extends IP
 	public IProtobufCollectionWrapper(T base) {
 		super(base);
 	}
+
+	@Override
+	public String toString() {
+		return "IProtobufCollectionWrapper [base=" + base.toString() + "]";
+	}
+	
 	
 }
