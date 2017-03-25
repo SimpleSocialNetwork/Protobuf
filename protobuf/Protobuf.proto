@@ -59,3 +59,7 @@ message Error{
 	string code = 1;
 	string description = 2;
 }
+
+message PasswordStrength{
+	int32 strength = 1;
+}
