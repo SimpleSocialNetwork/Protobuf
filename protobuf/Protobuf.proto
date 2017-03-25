@@ -54,3 +54,8 @@ message SessionInformation{
 	SessionSignature session = 1;
 	ShortUser user = 2;
 }
+
+message Error{
+	string code = 1;
+	string description = 2;
+}
