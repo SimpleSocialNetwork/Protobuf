@@ -8,6 +8,11 @@ import com.arctro.ssn.protobuf.converters.ProtobufConverter;
 import com.arctro.ssn.protobuf.models.impl.ShortUser;
 import com.arctro.ssn.protobuf.models.impl.ShortUserCollection;
 
+/**
+ * Converts between ShortUser and ShortUserCollection
+ * @author Ben McLean
+ *
+ */
 public class ShortUserProtobufConverter implements ProtobufConverter<ShortUser, ShortUserCollection>{
 
 	@Override

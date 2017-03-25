@@ -8,6 +8,11 @@ import com.arctro.ssn.protobuf.converters.ProtobufConverter;
 import com.arctro.ssn.protobuf.models.impl.Post;
 import com.arctro.ssn.protobuf.models.impl.PostCollection;
 
+/**
+ * Converts between Post and PostCollection
+ * @author Ben McLean
+ *
+ */
 public class PostProtobufConverter implements ProtobufConverter<Post, PostCollection>{
 
 	@Override

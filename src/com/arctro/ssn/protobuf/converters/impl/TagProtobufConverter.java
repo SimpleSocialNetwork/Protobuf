@@ -8,6 +8,11 @@ import com.arctro.ssn.protobuf.converters.ProtobufConverter;
 import com.arctro.ssn.protobuf.models.impl.Tag;
 import com.arctro.ssn.protobuf.models.impl.TagCollection;
 
+/**
+ * Converts between Tag and TagCollection
+ * @author Ben McLean
+ *
+ */
 public class TagProtobufConverter implements ProtobufConverter<Tag, TagCollection>{
 
 	@Override

@@ -2,6 +2,12 @@ package com.arctro.ssn.protobuf.models;
 
 import com.google.protobuf.GeneratedMessageV3;
 
+/**
+ * A concrete implementation of {@link ProtobufWrapper<T>}
+ * @author Ben McLean
+ *
+ * @param <T> The protobuf message to wrap
+ */
 public class IProtobufWrapper<T extends GeneratedMessageV3> implements ProtobufWrapper<T> {
 
 	T base;

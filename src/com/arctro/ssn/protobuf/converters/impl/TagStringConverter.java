@@ -6,6 +6,11 @@ import java.util.List;
 import com.arctro.ssn.protobuf.converters.Converter;
 import com.arctro.ssn.protobuf.models.impl.Tag;
 
+/**
+ * Converts a list of Tags to a list of Strings
+ * @author Ben McLean
+ *
+ */
 public class TagStringConverter implements Converter<List<Tag>, List<String>> {
 
 	@Override
