@@ -6886,6 +6886,11 @@ public final class Protobuf {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>optional int32 status = 3;</code>
+     */
+    int getStatus();
+
+    /**
      * <code>optional string code = 1;</code>
      */
     java.lang.String getCode();
@@ -6917,6 +6922,7 @@ public final class Protobuf {
       super(builder);
     }
     private Error() {
+      status_ = 0;
       code_ = "";
       description_ = "";
     }
@@ -6958,6 +6964,11 @@ public final class Protobuf {
               description_ = s;
               break;
             }
+            case 24: {
+
+              status_ = input.readInt32();
+              break;
+            }
           }
         }
       } catch (com.google.protobuf.InvalidProtocolBufferException e) {
@@ -6979,6 +6990,15 @@ public final class Protobuf {
       return com.arctro.ssn.protobuf.Protobuf.internal_static_Error_fieldAccessorTable
           .ensureFieldAccessorsInitialized(
               com.arctro.ssn.protobuf.Protobuf.Error.class, com.arctro.ssn.protobuf.Protobuf.Error.Builder.class);
+    }
+
+    public static final int STATUS_FIELD_NUMBER = 3;
+    private int status_;
+    /**
+     * <code>optional int32 status = 3;</code>
+     */
+    public int getStatus() {
+      return status_;
     }
 
     public static final int CODE_FIELD_NUMBER = 1;
@@ -7067,6 +7087,9 @@ public final class Protobuf {
       if (!getDescriptionBytes().isEmpty()) {
         com.google.protobuf.GeneratedMessageV3.writeString(output, 2, description_);
       }
+      if (status_ != 0) {
+        output.writeInt32(3, status_);
+      }
     }
 
     public int getSerializedSize() {
@@ -7079,6 +7102,10 @@ public final class Protobuf {
       }
       if (!getDescriptionBytes().isEmpty()) {
         size += com.google.protobuf.GeneratedMessageV3.computeStringSize(2, description_);
+      }
+      if (status_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(3, status_);
       }
       memoizedSize = size;
       return size;
@@ -7096,6 +7123,8 @@ public final class Protobuf {
       com.arctro.ssn.protobuf.Protobuf.Error other = (com.arctro.ssn.protobuf.Protobuf.Error) obj;
 
       boolean result = true;
+      result = result && (getStatus()
+          == other.getStatus());
       result = result && getCode()
           .equals(other.getCode());
       result = result && getDescription()
@@ -7110,6 +7139,8 @@ public final class Protobuf {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + STATUS_FIELD_NUMBER;
+      hash = (53 * hash) + getStatus();
       hash = (37 * hash) + CODE_FIELD_NUMBER;
       hash = (53 * hash) + getCode().hashCode();
       hash = (37 * hash) + DESCRIPTION_FIELD_NUMBER;
@@ -7232,6 +7263,8 @@ public final class Protobuf {
       }
       public Builder clear() {
         super.clear();
+        status_ = 0;
+
         code_ = "";
 
         description_ = "";
@@ -7258,6 +7291,7 @@ public final class Protobuf {
 
       public com.arctro.ssn.protobuf.Protobuf.Error buildPartial() {
         com.arctro.ssn.protobuf.Protobuf.Error result = new com.arctro.ssn.protobuf.Protobuf.Error(this);
+        result.status_ = status_;
         result.code_ = code_;
         result.description_ = description_;
         onBuilt();
@@ -7301,6 +7335,9 @@ public final class Protobuf {
 
       public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.Error other) {
         if (other == com.arctro.ssn.protobuf.Protobuf.Error.getDefaultInstance()) return this;
+        if (other.getStatus() != 0) {
+          setStatus(other.getStatus());
+        }
         if (!other.getCode().isEmpty()) {
           code_ = other.code_;
           onChanged();
@@ -7332,6 +7369,32 @@ public final class Protobuf {
             mergeFrom(parsedMessage);
           }
         }
+        return this;
+      }
+
+      private int status_ ;
+      /**
+       * <code>optional int32 status = 3;</code>
+       */
+      public int getStatus() {
+        return status_;
+      }
+      /**
+       * <code>optional int32 status = 3;</code>
+       */
+      public Builder setStatus(int value) {
+        
+        status_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional int32 status = 3;</code>
+       */
+      public Builder clearStatus() {
+        
+        status_ = 0;
+        onChanged();
         return this;
       }
 
@@ -8014,6 +8077,1600 @@ public final class Protobuf {
 
   }
 
+  public interface IPAddressOrBuilder extends
+      // @@protoc_insertion_point(interface_extends:IPAddress)
+      com.google.protobuf.MessageOrBuilder {
+
+    /**
+     * <code>optional string address = 1;</code>
+     */
+    java.lang.String getAddress();
+    /**
+     * <code>optional string address = 1;</code>
+     */
+    com.google.protobuf.ByteString
+        getAddressBytes();
+
+    /**
+     * <code>optional double latitude = 2;</code>
+     */
+    double getLatitude();
+
+    /**
+     * <code>optional double longitude = 3;</code>
+     */
+    double getLongitude();
+
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    java.lang.String getCountry();
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    com.google.protobuf.ByteString
+        getCountryBytes();
+
+    /**
+     * <code>optional string countryCode = 5;</code>
+     */
+    java.lang.String getCountryCode();
+    /**
+     * <code>optional string countryCode = 5;</code>
+     */
+    com.google.protobuf.ByteString
+        getCountryCodeBytes();
+
+    /**
+     * <code>optional string region = 6;</code>
+     */
+    java.lang.String getRegion();
+    /**
+     * <code>optional string region = 6;</code>
+     */
+    com.google.protobuf.ByteString
+        getRegionBytes();
+
+    /**
+     * <code>optional string region_name = 7;</code>
+     */
+    java.lang.String getRegionName();
+    /**
+     * <code>optional string region_name = 7;</code>
+     */
+    com.google.protobuf.ByteString
+        getRegionNameBytes();
+
+    /**
+     * <code>optional string city = 8;</code>
+     */
+    java.lang.String getCity();
+    /**
+     * <code>optional string city = 8;</code>
+     */
+    com.google.protobuf.ByteString
+        getCityBytes();
+
+    /**
+     * <code>optional string isp = 9;</code>
+     */
+    java.lang.String getIsp();
+    /**
+     * <code>optional string isp = 9;</code>
+     */
+    com.google.protobuf.ByteString
+        getIspBytes();
+
+    /**
+     * <code>optional string timezone = 10;</code>
+     */
+    java.lang.String getTimezone();
+    /**
+     * <code>optional string timezone = 10;</code>
+     */
+    com.google.protobuf.ByteString
+        getTimezoneBytes();
+  }
+  /**
+   * Protobuf type {@code IPAddress}
+   */
+  public  static final class IPAddress extends
+      com.google.protobuf.GeneratedMessageV3 implements
+      // @@protoc_insertion_point(message_implements:IPAddress)
+      IPAddressOrBuilder {
+    // Use IPAddress.newBuilder() to construct.
+    private IPAddress(com.google.protobuf.GeneratedMessageV3.Builder<?> builder) {
+      super(builder);
+    }
+    private IPAddress() {
+      address_ = "";
+      latitude_ = 0D;
+      longitude_ = 0D;
+      country_ = "";
+      countryCode_ = "";
+      region_ = "";
+      regionName_ = "";
+      city_ = "";
+      isp_ = "";
+      timezone_ = "";
+    }
+
+    @java.lang.Override
+    public final com.google.protobuf.UnknownFieldSet
+    getUnknownFields() {
+      return com.google.protobuf.UnknownFieldSet.getDefaultInstance();
+    }
+    private IPAddress(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      this();
+      int mutable_bitField0_ = 0;
+      try {
+        boolean done = false;
+        while (!done) {
+          int tag = input.readTag();
+          switch (tag) {
+            case 0:
+              done = true;
+              break;
+            default: {
+              if (!input.skipField(tag)) {
+                done = true;
+              }
+              break;
+            }
+            case 10: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              address_ = s;
+              break;
+            }
+            case 17: {
+
+              latitude_ = input.readDouble();
+              break;
+            }
+            case 25: {
+
+              longitude_ = input.readDouble();
+              break;
+            }
+            case 34: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              country_ = s;
+              break;
+            }
+            case 42: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              countryCode_ = s;
+              break;
+            }
+            case 50: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              region_ = s;
+              break;
+            }
+            case 58: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              regionName_ = s;
+              break;
+            }
+            case 66: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              city_ = s;
+              break;
+            }
+            case 74: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              isp_ = s;
+              break;
+            }
+            case 82: {
+              java.lang.String s = input.readStringRequireUtf8();
+
+              timezone_ = s;
+              break;
+            }
+          }
+        }
+      } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+        throw e.setUnfinishedMessage(this);
+      } catch (java.io.IOException e) {
+        throw new com.google.protobuf.InvalidProtocolBufferException(
+            e).setUnfinishedMessage(this);
+      } finally {
+        makeExtensionsImmutable();
+      }
+    }
+    public static final com.google.protobuf.Descriptors.Descriptor
+        getDescriptor() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_IPAddress_descriptor;
+    }
+
+    protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+        internalGetFieldAccessorTable() {
+      return com.arctro.ssn.protobuf.Protobuf.internal_static_IPAddress_fieldAccessorTable
+          .ensureFieldAccessorsInitialized(
+              com.arctro.ssn.protobuf.Protobuf.IPAddress.class, com.arctro.ssn.protobuf.Protobuf.IPAddress.Builder.class);
+    }
+
+    public static final int ADDRESS_FIELD_NUMBER = 1;
+    private volatile java.lang.Object address_;
+    /**
+     * <code>optional string address = 1;</code>
+     */
+    public java.lang.String getAddress() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        address_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string address = 1;</code>
+     */
+    public com.google.protobuf.ByteString
+        getAddressBytes() {
+      java.lang.Object ref = address_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        address_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int LATITUDE_FIELD_NUMBER = 2;
+    private double latitude_;
+    /**
+     * <code>optional double latitude = 2;</code>
+     */
+    public double getLatitude() {
+      return latitude_;
+    }
+
+    public static final int LONGITUDE_FIELD_NUMBER = 3;
+    private double longitude_;
+    /**
+     * <code>optional double longitude = 3;</code>
+     */
+    public double getLongitude() {
+      return longitude_;
+    }
+
+    public static final int COUNTRY_FIELD_NUMBER = 4;
+    private volatile java.lang.Object country_;
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    public java.lang.String getCountry() {
+      java.lang.Object ref = country_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        country_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string country = 4;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCountryBytes() {
+      java.lang.Object ref = country_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        country_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int COUNTRYCODE_FIELD_NUMBER = 5;
+    private volatile java.lang.Object countryCode_;
+    /**
+     * <code>optional string countryCode = 5;</code>
+     */
+    public java.lang.String getCountryCode() {
+      java.lang.Object ref = countryCode_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        countryCode_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string countryCode = 5;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCountryCodeBytes() {
+      java.lang.Object ref = countryCode_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        countryCode_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_FIELD_NUMBER = 6;
+    private volatile java.lang.Object region_;
+    /**
+     * <code>optional string region = 6;</code>
+     */
+    public java.lang.String getRegion() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        region_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string region = 6;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRegionBytes() {
+      java.lang.Object ref = region_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        region_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int REGION_NAME_FIELD_NUMBER = 7;
+    private volatile java.lang.Object regionName_;
+    /**
+     * <code>optional string region_name = 7;</code>
+     */
+    public java.lang.String getRegionName() {
+      java.lang.Object ref = regionName_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        regionName_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string region_name = 7;</code>
+     */
+    public com.google.protobuf.ByteString
+        getRegionNameBytes() {
+      java.lang.Object ref = regionName_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        regionName_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int CITY_FIELD_NUMBER = 8;
+    private volatile java.lang.Object city_;
+    /**
+     * <code>optional string city = 8;</code>
+     */
+    public java.lang.String getCity() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        city_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string city = 8;</code>
+     */
+    public com.google.protobuf.ByteString
+        getCityBytes() {
+      java.lang.Object ref = city_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        city_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int ISP_FIELD_NUMBER = 9;
+    private volatile java.lang.Object isp_;
+    /**
+     * <code>optional string isp = 9;</code>
+     */
+    public java.lang.String getIsp() {
+      java.lang.Object ref = isp_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        isp_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string isp = 9;</code>
+     */
+    public com.google.protobuf.ByteString
+        getIspBytes() {
+      java.lang.Object ref = isp_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        isp_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    public static final int TIMEZONE_FIELD_NUMBER = 10;
+    private volatile java.lang.Object timezone_;
+    /**
+     * <code>optional string timezone = 10;</code>
+     */
+    public java.lang.String getTimezone() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof java.lang.String) {
+        return (java.lang.String) ref;
+      } else {
+        com.google.protobuf.ByteString bs = 
+            (com.google.protobuf.ByteString) ref;
+        java.lang.String s = bs.toStringUtf8();
+        timezone_ = s;
+        return s;
+      }
+    }
+    /**
+     * <code>optional string timezone = 10;</code>
+     */
+    public com.google.protobuf.ByteString
+        getTimezoneBytes() {
+      java.lang.Object ref = timezone_;
+      if (ref instanceof java.lang.String) {
+        com.google.protobuf.ByteString b = 
+            com.google.protobuf.ByteString.copyFromUtf8(
+                (java.lang.String) ref);
+        timezone_ = b;
+        return b;
+      } else {
+        return (com.google.protobuf.ByteString) ref;
+      }
+    }
+
+    private byte memoizedIsInitialized = -1;
+    public final boolean isInitialized() {
+      byte isInitialized = memoizedIsInitialized;
+      if (isInitialized == 1) return true;
+      if (isInitialized == 0) return false;
+
+      memoizedIsInitialized = 1;
+      return true;
+    }
+
+    public void writeTo(com.google.protobuf.CodedOutputStream output)
+                        throws java.io.IOException {
+      if (!getAddressBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 1, address_);
+      }
+      if (latitude_ != 0D) {
+        output.writeDouble(2, latitude_);
+      }
+      if (longitude_ != 0D) {
+        output.writeDouble(3, longitude_);
+      }
+      if (!getCountryBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 4, country_);
+      }
+      if (!getCountryCodeBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 5, countryCode_);
+      }
+      if (!getRegionBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 6, region_);
+      }
+      if (!getRegionNameBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 7, regionName_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 8, city_);
+      }
+      if (!getIspBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 9, isp_);
+      }
+      if (!getTimezoneBytes().isEmpty()) {
+        com.google.protobuf.GeneratedMessageV3.writeString(output, 10, timezone_);
+      }
+    }
+
+    public int getSerializedSize() {
+      int size = memoizedSize;
+      if (size != -1) return size;
+
+      size = 0;
+      if (!getAddressBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(1, address_);
+      }
+      if (latitude_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(2, latitude_);
+      }
+      if (longitude_ != 0D) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeDoubleSize(3, longitude_);
+      }
+      if (!getCountryBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(4, country_);
+      }
+      if (!getCountryCodeBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(5, countryCode_);
+      }
+      if (!getRegionBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(6, region_);
+      }
+      if (!getRegionNameBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(7, regionName_);
+      }
+      if (!getCityBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(8, city_);
+      }
+      if (!getIspBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(9, isp_);
+      }
+      if (!getTimezoneBytes().isEmpty()) {
+        size += com.google.protobuf.GeneratedMessageV3.computeStringSize(10, timezone_);
+      }
+      memoizedSize = size;
+      return size;
+    }
+
+    private static final long serialVersionUID = 0L;
+    @java.lang.Override
+    public boolean equals(final java.lang.Object obj) {
+      if (obj == this) {
+       return true;
+      }
+      if (!(obj instanceof com.arctro.ssn.protobuf.Protobuf.IPAddress)) {
+        return super.equals(obj);
+      }
+      com.arctro.ssn.protobuf.Protobuf.IPAddress other = (com.arctro.ssn.protobuf.Protobuf.IPAddress) obj;
+
+      boolean result = true;
+      result = result && getAddress()
+          .equals(other.getAddress());
+      result = result && (
+          java.lang.Double.doubleToLongBits(getLatitude())
+          == java.lang.Double.doubleToLongBits(
+              other.getLatitude()));
+      result = result && (
+          java.lang.Double.doubleToLongBits(getLongitude())
+          == java.lang.Double.doubleToLongBits(
+              other.getLongitude()));
+      result = result && getCountry()
+          .equals(other.getCountry());
+      result = result && getCountryCode()
+          .equals(other.getCountryCode());
+      result = result && getRegion()
+          .equals(other.getRegion());
+      result = result && getRegionName()
+          .equals(other.getRegionName());
+      result = result && getCity()
+          .equals(other.getCity());
+      result = result && getIsp()
+          .equals(other.getIsp());
+      result = result && getTimezone()
+          .equals(other.getTimezone());
+      return result;
+    }
+
+    @java.lang.Override
+    public int hashCode() {
+      if (memoizedHashCode != 0) {
+        return memoizedHashCode;
+      }
+      int hash = 41;
+      hash = (19 * hash) + getDescriptorForType().hashCode();
+      hash = (37 * hash) + ADDRESS_FIELD_NUMBER;
+      hash = (53 * hash) + getAddress().hashCode();
+      hash = (37 * hash) + LATITUDE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getLatitude()));
+      hash = (37 * hash) + LONGITUDE_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          java.lang.Double.doubleToLongBits(getLongitude()));
+      hash = (37 * hash) + COUNTRY_FIELD_NUMBER;
+      hash = (53 * hash) + getCountry().hashCode();
+      hash = (37 * hash) + COUNTRYCODE_FIELD_NUMBER;
+      hash = (53 * hash) + getCountryCode().hashCode();
+      hash = (37 * hash) + REGION_FIELD_NUMBER;
+      hash = (53 * hash) + getRegion().hashCode();
+      hash = (37 * hash) + REGION_NAME_FIELD_NUMBER;
+      hash = (53 * hash) + getRegionName().hashCode();
+      hash = (37 * hash) + CITY_FIELD_NUMBER;
+      hash = (53 * hash) + getCity().hashCode();
+      hash = (37 * hash) + ISP_FIELD_NUMBER;
+      hash = (53 * hash) + getIsp().hashCode();
+      hash = (37 * hash) + TIMEZONE_FIELD_NUMBER;
+      hash = (53 * hash) + getTimezone().hashCode();
+      hash = (29 * hash) + unknownFields.hashCode();
+      memoizedHashCode = hash;
+      return hash;
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(
+        com.google.protobuf.ByteString data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(
+        com.google.protobuf.ByteString data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(byte[] data)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(
+        byte[] data,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws com.google.protobuf.InvalidProtocolBufferException {
+      return PARSER.parseFrom(data, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseDelimitedFrom(java.io.InputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseDelimitedFrom(
+        java.io.InputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseDelimitedWithIOException(PARSER, input, extensionRegistry);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(
+        com.google.protobuf.CodedInputStream input)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input);
+    }
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress parseFrom(
+        com.google.protobuf.CodedInputStream input,
+        com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+        throws java.io.IOException {
+      return com.google.protobuf.GeneratedMessageV3
+          .parseWithIOException(PARSER, input, extensionRegistry);
+    }
+
+    public Builder newBuilderForType() { return newBuilder(); }
+    public static Builder newBuilder() {
+      return DEFAULT_INSTANCE.toBuilder();
+    }
+    public static Builder newBuilder(com.arctro.ssn.protobuf.Protobuf.IPAddress prototype) {
+      return DEFAULT_INSTANCE.toBuilder().mergeFrom(prototype);
+    }
+    public Builder toBuilder() {
+      return this == DEFAULT_INSTANCE
+          ? new Builder() : new Builder().mergeFrom(this);
+    }
+
+    @java.lang.Override
+    protected Builder newBuilderForType(
+        com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+      Builder builder = new Builder(parent);
+      return builder;
+    }
+    /**
+     * Protobuf type {@code IPAddress}
+     */
+    public static final class Builder extends
+        com.google.protobuf.GeneratedMessageV3.Builder<Builder> implements
+        // @@protoc_insertion_point(builder_implements:IPAddress)
+        com.arctro.ssn.protobuf.Protobuf.IPAddressOrBuilder {
+      public static final com.google.protobuf.Descriptors.Descriptor
+          getDescriptor() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_IPAddress_descriptor;
+      }
+
+      protected com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+          internalGetFieldAccessorTable() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_IPAddress_fieldAccessorTable
+            .ensureFieldAccessorsInitialized(
+                com.arctro.ssn.protobuf.Protobuf.IPAddress.class, com.arctro.ssn.protobuf.Protobuf.IPAddress.Builder.class);
+      }
+
+      // Construct using com.arctro.ssn.protobuf.Protobuf.IPAddress.newBuilder()
+      private Builder() {
+        maybeForceBuilderInitialization();
+      }
+
+      private Builder(
+          com.google.protobuf.GeneratedMessageV3.BuilderParent parent) {
+        super(parent);
+        maybeForceBuilderInitialization();
+      }
+      private void maybeForceBuilderInitialization() {
+        if (com.google.protobuf.GeneratedMessageV3
+                .alwaysUseFieldBuilders) {
+        }
+      }
+      public Builder clear() {
+        super.clear();
+        address_ = "";
+
+        latitude_ = 0D;
+
+        longitude_ = 0D;
+
+        country_ = "";
+
+        countryCode_ = "";
+
+        region_ = "";
+
+        regionName_ = "";
+
+        city_ = "";
+
+        isp_ = "";
+
+        timezone_ = "";
+
+        return this;
+      }
+
+      public com.google.protobuf.Descriptors.Descriptor
+          getDescriptorForType() {
+        return com.arctro.ssn.protobuf.Protobuf.internal_static_IPAddress_descriptor;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.IPAddress getDefaultInstanceForType() {
+        return com.arctro.ssn.protobuf.Protobuf.IPAddress.getDefaultInstance();
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.IPAddress build() {
+        com.arctro.ssn.protobuf.Protobuf.IPAddress result = buildPartial();
+        if (!result.isInitialized()) {
+          throw newUninitializedMessageException(result);
+        }
+        return result;
+      }
+
+      public com.arctro.ssn.protobuf.Protobuf.IPAddress buildPartial() {
+        com.arctro.ssn.protobuf.Protobuf.IPAddress result = new com.arctro.ssn.protobuf.Protobuf.IPAddress(this);
+        result.address_ = address_;
+        result.latitude_ = latitude_;
+        result.longitude_ = longitude_;
+        result.country_ = country_;
+        result.countryCode_ = countryCode_;
+        result.region_ = region_;
+        result.regionName_ = regionName_;
+        result.city_ = city_;
+        result.isp_ = isp_;
+        result.timezone_ = timezone_;
+        onBuilt();
+        return result;
+      }
+
+      public Builder clone() {
+        return (Builder) super.clone();
+      }
+      public Builder setField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.setField(field, value);
+      }
+      public Builder clearField(
+          com.google.protobuf.Descriptors.FieldDescriptor field) {
+        return (Builder) super.clearField(field);
+      }
+      public Builder clearOneof(
+          com.google.protobuf.Descriptors.OneofDescriptor oneof) {
+        return (Builder) super.clearOneof(oneof);
+      }
+      public Builder setRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          int index, Object value) {
+        return (Builder) super.setRepeatedField(field, index, value);
+      }
+      public Builder addRepeatedField(
+          com.google.protobuf.Descriptors.FieldDescriptor field,
+          Object value) {
+        return (Builder) super.addRepeatedField(field, value);
+      }
+      public Builder mergeFrom(com.google.protobuf.Message other) {
+        if (other instanceof com.arctro.ssn.protobuf.Protobuf.IPAddress) {
+          return mergeFrom((com.arctro.ssn.protobuf.Protobuf.IPAddress)other);
+        } else {
+          super.mergeFrom(other);
+          return this;
+        }
+      }
+
+      public Builder mergeFrom(com.arctro.ssn.protobuf.Protobuf.IPAddress other) {
+        if (other == com.arctro.ssn.protobuf.Protobuf.IPAddress.getDefaultInstance()) return this;
+        if (!other.getAddress().isEmpty()) {
+          address_ = other.address_;
+          onChanged();
+        }
+        if (other.getLatitude() != 0D) {
+          setLatitude(other.getLatitude());
+        }
+        if (other.getLongitude() != 0D) {
+          setLongitude(other.getLongitude());
+        }
+        if (!other.getCountry().isEmpty()) {
+          country_ = other.country_;
+          onChanged();
+        }
+        if (!other.getCountryCode().isEmpty()) {
+          countryCode_ = other.countryCode_;
+          onChanged();
+        }
+        if (!other.getRegion().isEmpty()) {
+          region_ = other.region_;
+          onChanged();
+        }
+        if (!other.getRegionName().isEmpty()) {
+          regionName_ = other.regionName_;
+          onChanged();
+        }
+        if (!other.getCity().isEmpty()) {
+          city_ = other.city_;
+          onChanged();
+        }
+        if (!other.getIsp().isEmpty()) {
+          isp_ = other.isp_;
+          onChanged();
+        }
+        if (!other.getTimezone().isEmpty()) {
+          timezone_ = other.timezone_;
+          onChanged();
+        }
+        onChanged();
+        return this;
+      }
+
+      public final boolean isInitialized() {
+        return true;
+      }
+
+      public Builder mergeFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws java.io.IOException {
+        com.arctro.ssn.protobuf.Protobuf.IPAddress parsedMessage = null;
+        try {
+          parsedMessage = PARSER.parsePartialFrom(input, extensionRegistry);
+        } catch (com.google.protobuf.InvalidProtocolBufferException e) {
+          parsedMessage = (com.arctro.ssn.protobuf.Protobuf.IPAddress) e.getUnfinishedMessage();
+          throw e.unwrapIOException();
+        } finally {
+          if (parsedMessage != null) {
+            mergeFrom(parsedMessage);
+          }
+        }
+        return this;
+      }
+
+      private java.lang.Object address_ = "";
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public java.lang.String getAddress() {
+        java.lang.Object ref = address_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          address_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public com.google.protobuf.ByteString
+          getAddressBytes() {
+        java.lang.Object ref = address_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          address_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public Builder setAddress(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        address_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public Builder clearAddress() {
+        
+        address_ = getDefaultInstance().getAddress();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string address = 1;</code>
+       */
+      public Builder setAddressBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        address_ = value;
+        onChanged();
+        return this;
+      }
+
+      private double latitude_ ;
+      /**
+       * <code>optional double latitude = 2;</code>
+       */
+      public double getLatitude() {
+        return latitude_;
+      }
+      /**
+       * <code>optional double latitude = 2;</code>
+       */
+      public Builder setLatitude(double value) {
+        
+        latitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double latitude = 2;</code>
+       */
+      public Builder clearLatitude() {
+        
+        latitude_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private double longitude_ ;
+      /**
+       * <code>optional double longitude = 3;</code>
+       */
+      public double getLongitude() {
+        return longitude_;
+      }
+      /**
+       * <code>optional double longitude = 3;</code>
+       */
+      public Builder setLongitude(double value) {
+        
+        longitude_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional double longitude = 3;</code>
+       */
+      public Builder clearLongitude() {
+        
+        longitude_ = 0D;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object country_ = "";
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public java.lang.String getCountry() {
+        java.lang.Object ref = country_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          country_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCountryBytes() {
+        java.lang.Object ref = country_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          country_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public Builder setCountry(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        country_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public Builder clearCountry() {
+        
+        country_ = getDefaultInstance().getCountry();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string country = 4;</code>
+       */
+      public Builder setCountryBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        country_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object countryCode_ = "";
+      /**
+       * <code>optional string countryCode = 5;</code>
+       */
+      public java.lang.String getCountryCode() {
+        java.lang.Object ref = countryCode_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          countryCode_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string countryCode = 5;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCountryCodeBytes() {
+        java.lang.Object ref = countryCode_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          countryCode_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string countryCode = 5;</code>
+       */
+      public Builder setCountryCode(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        countryCode_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string countryCode = 5;</code>
+       */
+      public Builder clearCountryCode() {
+        
+        countryCode_ = getDefaultInstance().getCountryCode();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string countryCode = 5;</code>
+       */
+      public Builder setCountryCodeBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        countryCode_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object region_ = "";
+      /**
+       * <code>optional string region = 6;</code>
+       */
+      public java.lang.String getRegion() {
+        java.lang.Object ref = region_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          region_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string region = 6;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRegionBytes() {
+        java.lang.Object ref = region_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          region_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string region = 6;</code>
+       */
+      public Builder setRegion(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        region_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string region = 6;</code>
+       */
+      public Builder clearRegion() {
+        
+        region_ = getDefaultInstance().getRegion();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string region = 6;</code>
+       */
+      public Builder setRegionBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        region_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object regionName_ = "";
+      /**
+       * <code>optional string region_name = 7;</code>
+       */
+      public java.lang.String getRegionName() {
+        java.lang.Object ref = regionName_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          regionName_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string region_name = 7;</code>
+       */
+      public com.google.protobuf.ByteString
+          getRegionNameBytes() {
+        java.lang.Object ref = regionName_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          regionName_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string region_name = 7;</code>
+       */
+      public Builder setRegionName(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        regionName_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string region_name = 7;</code>
+       */
+      public Builder clearRegionName() {
+        
+        regionName_ = getDefaultInstance().getRegionName();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string region_name = 7;</code>
+       */
+      public Builder setRegionNameBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        regionName_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object city_ = "";
+      /**
+       * <code>optional string city = 8;</code>
+       */
+      public java.lang.String getCity() {
+        java.lang.Object ref = city_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          city_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string city = 8;</code>
+       */
+      public com.google.protobuf.ByteString
+          getCityBytes() {
+        java.lang.Object ref = city_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          city_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string city = 8;</code>
+       */
+      public Builder setCity(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        city_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string city = 8;</code>
+       */
+      public Builder clearCity() {
+        
+        city_ = getDefaultInstance().getCity();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string city = 8;</code>
+       */
+      public Builder setCityBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        city_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object isp_ = "";
+      /**
+       * <code>optional string isp = 9;</code>
+       */
+      public java.lang.String getIsp() {
+        java.lang.Object ref = isp_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          isp_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string isp = 9;</code>
+       */
+      public com.google.protobuf.ByteString
+          getIspBytes() {
+        java.lang.Object ref = isp_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          isp_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string isp = 9;</code>
+       */
+      public Builder setIsp(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        isp_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string isp = 9;</code>
+       */
+      public Builder clearIsp() {
+        
+        isp_ = getDefaultInstance().getIsp();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string isp = 9;</code>
+       */
+      public Builder setIspBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        isp_ = value;
+        onChanged();
+        return this;
+      }
+
+      private java.lang.Object timezone_ = "";
+      /**
+       * <code>optional string timezone = 10;</code>
+       */
+      public java.lang.String getTimezone() {
+        java.lang.Object ref = timezone_;
+        if (!(ref instanceof java.lang.String)) {
+          com.google.protobuf.ByteString bs =
+              (com.google.protobuf.ByteString) ref;
+          java.lang.String s = bs.toStringUtf8();
+          timezone_ = s;
+          return s;
+        } else {
+          return (java.lang.String) ref;
+        }
+      }
+      /**
+       * <code>optional string timezone = 10;</code>
+       */
+      public com.google.protobuf.ByteString
+          getTimezoneBytes() {
+        java.lang.Object ref = timezone_;
+        if (ref instanceof String) {
+          com.google.protobuf.ByteString b = 
+              com.google.protobuf.ByteString.copyFromUtf8(
+                  (java.lang.String) ref);
+          timezone_ = b;
+          return b;
+        } else {
+          return (com.google.protobuf.ByteString) ref;
+        }
+      }
+      /**
+       * <code>optional string timezone = 10;</code>
+       */
+      public Builder setTimezone(
+          java.lang.String value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  
+        timezone_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string timezone = 10;</code>
+       */
+      public Builder clearTimezone() {
+        
+        timezone_ = getDefaultInstance().getTimezone();
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>optional string timezone = 10;</code>
+       */
+      public Builder setTimezoneBytes(
+          com.google.protobuf.ByteString value) {
+        if (value == null) {
+    throw new NullPointerException();
+  }
+  checkByteStringIsUtf8(value);
+        
+        timezone_ = value;
+        onChanged();
+        return this;
+      }
+      public final Builder setUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+      public final Builder mergeUnknownFields(
+          final com.google.protobuf.UnknownFieldSet unknownFields) {
+        return this;
+      }
+
+
+      // @@protoc_insertion_point(builder_scope:IPAddress)
+    }
+
+    // @@protoc_insertion_point(class_scope:IPAddress)
+    private static final com.arctro.ssn.protobuf.Protobuf.IPAddress DEFAULT_INSTANCE;
+    static {
+      DEFAULT_INSTANCE = new com.arctro.ssn.protobuf.Protobuf.IPAddress();
+    }
+
+    public static com.arctro.ssn.protobuf.Protobuf.IPAddress getDefaultInstance() {
+      return DEFAULT_INSTANCE;
+    }
+
+    private static final com.google.protobuf.Parser<IPAddress>
+        PARSER = new com.google.protobuf.AbstractParser<IPAddress>() {
+      public IPAddress parsePartialFrom(
+          com.google.protobuf.CodedInputStream input,
+          com.google.protobuf.ExtensionRegistryLite extensionRegistry)
+          throws com.google.protobuf.InvalidProtocolBufferException {
+          return new IPAddress(input, extensionRegistry);
+      }
+    };
+
+    public static com.google.protobuf.Parser<IPAddress> parser() {
+      return PARSER;
+    }
+
+    @java.lang.Override
+    public com.google.protobuf.Parser<IPAddress> getParserForType() {
+      return PARSER;
+    }
+
+    public com.arctro.ssn.protobuf.Protobuf.IPAddress getDefaultInstanceForType() {
+      return DEFAULT_INSTANCE;
+    }
+
+  }
+
   private static final com.google.protobuf.Descriptors.Descriptor
     internal_static_ShortUser_descriptor;
   private static final 
@@ -8069,6 +9726,11 @@ public final class Protobuf {
   private static final 
     com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
       internal_static_PasswordStrength_fieldAccessorTable;
+  private static final com.google.protobuf.Descriptors.Descriptor
+    internal_static_IPAddress_descriptor;
+  private static final 
+    com.google.protobuf.GeneratedMessageV3.FieldAccessorTable
+      internal_static_IPAddress_fieldAccessorTable;
 
   public static com.google.protobuf.Descriptors.FileDescriptor
       getDescriptor() {
@@ -8091,12 +9753,17 @@ public final class Protobuf {
       "expire\030\002 \001(\003\"6\n\020SessionSignature\022\017\n\007sess" +
       "ion\030\001 \001(\014\022\021\n\tsignature\030\002 \001(\t\"R\n\022SessionI" +
       "nformation\022\"\n\007session\030\001 \001(\0132\021.SessionSig" +
-      "nature\022\030\n\004user\030\002 \001(\0132\n.ShortUser\"*\n\005Erro" +
-      "r\022\014\n\004code\030\001 \001(\t\022\023\n\013description\030\002 \001(\t\";\n\020" +
-      "PasswordStrength\022\020\n\010strength\030\001 \001(\005\022\025\n\rst" +
-      "rong_enough\030\002 \001(\010*(\n\010UserType\022\010\n\004USER\020\000\022" +
-      "\007\n\003MOD\020\001\022\t\n\005ADMIN\020\002B\031\n\027com.arctro.ssn.pr" +
-      "otobufb\006proto3"
+      "nature\022\030\n\004user\030\002 \001(\0132\n.ShortUser\":\n\005Erro" +
+      "r\022\016\n\006status\030\003 \001(\005\022\014\n\004code\030\001 \001(\t\022\023\n\013descr" +
+      "iption\030\002 \001(\t\";\n\020PasswordStrength\022\020\n\010stre" +
+      "ngth\030\001 \001(\005\022\025\n\rstrong_enough\030\002 \001(\010\"\271\001\n\tIP" +
+      "Address\022\017\n\007address\030\001 \001(\t\022\020\n\010latitude\030\002 \001" +
+      "(\001\022\021\n\tlongitude\030\003 \001(\001\022\017\n\007country\030\004 \001(\t\022\023" +
+      "\n\013countryCode\030\005 \001(\t\022\016\n\006region\030\006 \001(\t\022\023\n\013r",
+      "egion_name\030\007 \001(\t\022\014\n\004city\030\010 \001(\t\022\013\n\003isp\030\t " +
+      "\001(\t\022\020\n\010timezone\030\n \001(\t*(\n\010UserType\022\010\n\004USE" +
+      "R\020\000\022\007\n\003MOD\020\001\022\t\n\005ADMIN\020\002B\031\n\027com.arctro.ss" +
+      "n.protobufb\006proto3"
     };
     com.google.protobuf.Descriptors.FileDescriptor.InternalDescriptorAssigner assigner =
         new com.google.protobuf.Descriptors.FileDescriptor.    InternalDescriptorAssigner() {
@@ -8169,13 +9836,19 @@ public final class Protobuf {
     internal_static_Error_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Error_descriptor,
-        new java.lang.String[] { "Code", "Description", });
+        new java.lang.String[] { "Status", "Code", "Description", });
     internal_static_PasswordStrength_descriptor =
       getDescriptor().getMessageTypes().get(10);
     internal_static_PasswordStrength_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_PasswordStrength_descriptor,
         new java.lang.String[] { "Strength", "StrongEnough", });
+    internal_static_IPAddress_descriptor =
+      getDescriptor().getMessageTypes().get(11);
+    internal_static_IPAddress_fieldAccessorTable = new
+      com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
+        internal_static_IPAddress_descriptor,
+        new java.lang.String[] { "Address", "Latitude", "Longitude", "Country", "CountryCode", "Region", "RegionName", "City", "Isp", "Timezone", });
   }
 
   // @@protoc_insertion_point(outer_class_scope)
